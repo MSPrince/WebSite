@@ -14,7 +14,6 @@ const ManageOrders = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isViewModal, setIsViewModal] = useState(false);
   const [deleteOrder] = useDeleteOrderMutation();
-
   const [orderIdFilter, setOrderIdFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
 
@@ -54,15 +53,18 @@ const ManageOrders = () => {
     return matchesOrderId && matchesDate;
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (isLoading) return <div>Loading....</div>;
   if (error) return <div>Something went wrong!</div>;
 
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, []);
   return (
-    <div className="p-6 ">
-      <h2 className="text-2xl font-semibold mb-4 text-primary">Manage Orders</h2>
+    <div className="p-6">
+      <h2 className="text-2xl font-semibold mb-4 text-primary">
+        Manage Orders
+      </h2>
 
       <div className="mb-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
         <input
@@ -142,8 +144,8 @@ const ManageOrders = () => {
         </table>
       </div>
 
-      {selectedOrder &&
-        isModalOpen &&
+      {isModalOpen &&
+        selectedOrder &&
         (isViewModal ? (
           <ViewOrderModal
             order={selectedOrder}
@@ -184,34 +186,53 @@ const ViewOrderModal = ({ order, isOpen, onClose }) => {
       <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-lg">
         <h2 className="text-xl font-semibold mb-4">Order Details</h2>
         <p>
-          <strong className="text-md font-semibold  text-primary">Order ID:</strong> {order?.orderId}
+          <strong className="text-md font-semibold text-primary">
+            Order ID:
+          </strong>{" "}
+          {order?.orderId}
         </p>
         <p>
-          <strong className="text-md font-semibold  text-primary">Email:</strong> {order?.email}
+          <strong className="text-md font-semibold text-primary">Email:</strong>{" "}
+          {order?.email}
         </p>
         <p>
-          <strong className="text-md font-semibold  text-primary">Status:</strong> {order?.status}
+          <strong className="text-md font-semibold text-primary">
+            Status:
+          </strong>{" "}
+          {order?.status}
         </p>
         <p>
-          <strong className="text-md font-semibold  text-primary">Order On:</strong> {formetDate(order?.updatedAt)}
+          <strong className="text-md font-semibold text-primary">
+            Order On:
+          </strong>{" "}
+          {formetDate(order?.updatedAt)}
         </p>
         <div className="mt-4">
           {order?.products?.map((product, idx) => (
             <div key={idx} className="mb-2 border-b pb-2">
               <p>
-                <strong className="text-md font-semibold  text-primary">Product ID:</strong> {product?.productId}
+                <strong className="text-md font-semibold text-primary">
+                  Product ID:
+                </strong>{" "}
+                {product?.productId}
               </p>
               <p>
-                <strong className="text-md font-semibold  text-primary">Product Name:</strong> {product?.productName}
+                <strong className="text-md font-semibold text-primary">
+                  Product Name:
+                </strong>{" "}
+                {product?.productName}
               </p>
               <p>
-                <strong className="text-md font-semibold  text-primary">Quantity:</strong> {product?.quantity}
+                <strong className="text-md font-semibold text-primary">
+                  Quantity:
+                </strong>{" "}
+                {product?.quantity}
               </p>
             </div>
           ))}
         </div>
         <button
-          className="mt-4 text-white bg-primary  px-4 py-2 rounded transition duration-200"
+          className="mt-4 text-white bg-primary px-4 py-2 rounded transition duration-200"
           onClick={onClose}
         >
           Close
