@@ -13,7 +13,7 @@ function DoctorDashboard() {
     setLoading(true); // Start loading
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/doctor/dashboard-data",
+        "https://doctors-diary-backen.onrender.com/api/doctor/dashboard-data",
         {
           headers: {
             Authorization: `Bearer ${dToken}`,
@@ -37,7 +37,7 @@ function DoctorDashboard() {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/doctor/cancel-appointment",
+        "https://doctors-diary-backen.onrender.com/api/doctor/cancel-appointment",
         { appointmentId },
         {
           headers: {

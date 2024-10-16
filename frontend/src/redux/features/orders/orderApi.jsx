@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const orderApi = createApi({
   reducerPath: "orderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:4000/api/orders`, // Use environment variable for base URL
+    baseUrl: `https://doctors-diary-backen.onrender.com/api/orders`, // Use environment variable for base URL
     credentials: "include", // Include credentials for cookies/auth
   }),
   tagTypes: ["Order"],

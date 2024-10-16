@@ -8,7 +8,7 @@ const AdminContextProvider = (props) => {
   const [aToken, setAToken] = useState();
 
   // Base URL for backend API
-  const backendUrl = "http://localhost:4000/";
+  const backendUrl = "https://doctors-diary-backen.onrender.com/";
 
   // Context value to be provided to components
   const value = {
