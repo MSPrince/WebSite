@@ -13,16 +13,13 @@ const ResetPassword = () => {
   const sendLink = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(
-        "https://doctors-diary-backen.onrender.com/api/auth/sendResetLink",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
-      );
+      const res = await fetch("http://localhost:4000/api/auth/sendResetLink", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
       const data = await res.json();
 

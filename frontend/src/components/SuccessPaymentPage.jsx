@@ -11,16 +11,13 @@ function SuccessPaymentPage() {
     const sessionId = query.get("session_id");
 
     if (sessionId) {
-      fetch(
-        `https://doctors-diary-backen.onrender.com/api/orders/confirm-payment/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ session_id: sessionId }),
-        }
-      )
+      fetch(`http://localhost:4000/api/orders/confirm-payment/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ session_id: sessionId }),
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

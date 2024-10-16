@@ -28,12 +28,9 @@ const UploadImage = ({ name, setImage }) => {
     setError(""); // Reset error state
 
     try {
-      const res = await axios.post(
-        `https://doctors-diary-backen.onrender.com/uploadImage`,
-        {
-          image: base64,
-        }
-      );
+      const res = await axios.post(`http://localhost:4000/uploadImage`, {
+        image: base64,
+      });
       const imageUrl = res.data;
       setUrl(imageUrl);
       alert("Image uploaded successfully");
