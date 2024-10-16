@@ -38,15 +38,12 @@ function DashboardDetail() {
   // Fetch all users
   const getAllUserData = async () => {
     try {
-      const response = await fetch(
-        "https://doctors-diary-backen.onrender.com/api/admin/users",
-        {
-          method: "GET",
-          headers: {
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/admin/users", {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
@@ -62,16 +59,13 @@ function DashboardDetail() {
   // Fetch contact data
   const getContactData = async () => {
     try {
-      const response = await fetch(
-        "https://doctors-diary-backen.onrender.com/api/admin/contacts",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/admin/contacts", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -91,7 +85,7 @@ function DashboardDetail() {
       }
 
       const { data } = await axios.get(
-        "https://doctors-diary-backen.onrender.com/api/docadmin/getAdminDashboardData",
+        "http://localhost:4000/api/docadmin/getAdminDashboardData",
         {
           headers: {
             Authorization: `Bearer ${token}`,

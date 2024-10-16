@@ -48,7 +48,7 @@ function OrderSummary() {
 
     try {
       const response = await fetch(
-        `https://doctors-diary-backen.onrender.com/api/orders/create-checkout-session`,
+        `http://localhost:4000/api/orders/create-checkout-session`,
         {
           method: "POST",
           headers: headers,
