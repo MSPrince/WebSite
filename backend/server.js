@@ -42,8 +42,8 @@ const app = express();
 // Handling CORS policy
 const corsOptions = {
   origin: [
-    "https://frontt-pmpw.onrender.com/",
-    "https://doctors-9j8e.onrender.com/",
+    "https://frontt-pmpw.onrender.com",
+    "https://doctors-9j8e.onrender.com",
   ], // Corrected from semicolon to comma
   methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true, // Corrected spelling (from "credential" to "credentials")
