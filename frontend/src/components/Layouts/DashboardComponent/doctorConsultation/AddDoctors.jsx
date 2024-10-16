@@ -63,7 +63,7 @@ function AddDoctors() {
       const token = localStorage.getItem("token");
 
       const { data } = await axios.post(
-        "http://localhost:4000/api/docadmin/add-doctor",
+        "https://doctors-diary-backen.onrender.com/api/docadmin/add-doctor",
         formData,
         {
           headers: {

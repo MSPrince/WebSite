@@ -14,7 +14,7 @@ const DoctorContextProvider = (props) => {
   const getAppointments = async () => {
     try {
       const { data } = axios.get(
-        "http://localhost:4000/api/doctor/appointments",
+        "https://doctors-diary-backen.onrender.com/api/doctor/appointments",
         {
           headers: {
             Authorization: `Bearer ${dToken}`,

@@ -77,7 +77,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/auth/registration",
+        "https://doctors-diary-backen.onrender.com/api/auth/registration",
         {
           method: "POST",
           headers: {

@@ -12,7 +12,7 @@ function DoctorAppointments() {
   const getAppointments = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/doctor/appointments",
+        "https://doctors-diary-backen.onrender.com/api/doctor/appointments",
         {
           headers: {
             Authorization: `Bearer ${dToken}`,
@@ -36,7 +36,7 @@ function DoctorAppointments() {
   const completeAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/doctor/complete-appointment",
+        "https://doctors-diary-backen.onrender.com/api/doctor/complete-appointment",
         { appointmentId },
         {
           headers: {
@@ -59,7 +59,7 @@ function DoctorAppointments() {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/doctor/cancel-appointment",
+        "https://doctors-diary-backen.onrender.com/api/doctor/cancel-appointment",
         { appointmentId },
         {
           headers: {

@@ -12,7 +12,7 @@ const ForgotPassword = () => {
   const userValid = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/auth/forgotPassword/${id}/${token}`,
+        `https://doctors-diary-backen.onrender.com/api/auth/forgotPassword/${id}/${token}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -38,11 +38,14 @@ const ForgotPassword = () => {
   const sendpassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:4000/api/auth/${id}/${token}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      });
+      const res = await fetch(
+        `https://doctors-diary-backen.onrender.com/api/auth/${id}/${token}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password }),
+        }
+      );
 
       const data = await res.json();
 

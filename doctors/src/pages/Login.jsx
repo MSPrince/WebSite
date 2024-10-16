@@ -20,7 +20,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/doctor/login",
+        "https://doctors-diary-backen.onrender.com/api/doctor/login",
         { email: email.trim(), password: password.trim() },
         {
           headers: {

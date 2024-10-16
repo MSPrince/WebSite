@@ -14,7 +14,7 @@ function MyAppoinment() {
   const getUserAppointments = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4000/api/auth/appointments",
+        "https://doctors-diary-backen.onrender.com/api/auth/appointments",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ function MyAppoinment() {
     try {
       console.log("appointmentId", appointmentId);
       const { data } = await axios.post(
-        "http://localhost:4000/api/auth/cancel-appointments",
+        "https://doctors-diary-backen.onrender.com/api/auth/cancel-appointments",
         {
           appointmentId: appointmentId,
         },
