@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: Cabinet Grotesk Variable;
+    font-optical-sizing: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.Button{
+  background: rgb(228, 9, 76);
+    background: linear-gradient(124deg, rgba(228, 9, 76, 1) 3%, rgba(16, 64, 105, 1) 99%);
+}
+.LabBG{
+  background: rgb(177, 205, 186);
+    background: linear-gradient(124deg, rgba(177, 205, 186, 1) 3%, rgba(205, 223, 212, 1) 55%, rgba(220, 233, 224, 1) 95%);
+}
+
+.TextGradient{
+  background: -webkit-linear-gradient(0deg, #ffffff 12%, #e4094c 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.Textgradient{
+  background: -webkit-linear-gradient(0deg, #104069 12%, #e4094c 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.TextGradient2{
+  background: -webkit-linear-gradient(55deg,  #e4094c 30% , #fff 35%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Change the color of the previous and next buttons */
+.slick-prev,
+.slick-next {
+  background-color: #104069;
+  /* Change to your preferred color */
+  color: white;
+  border-radius: 50%;
+  /* Optional: Make the buttons circular */
+  width: 40px;
+  height: 40px;
+  z-index: 56;
+}
+
+/* Change button color on hover */
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: #e4094c;
+  /* Change hover color */
+}
+
+.custom-height {
+  height: calc(100vh - 80px);
+}
+
+
+/* src/styles/globals.css or in your component-specific CSS file */
+.prose-table {
+  @apply w-full text-left border-collapse;
+}
+
+.prose-table td,
+.prose-table th {
+  @apply border border-gray-300 p-2;
+  /* Adds border and padding */
+}
+
+.prose-table tr:nth-child(even) {
+  @apply bg-gray-100;
+  /* Optional: Adds a background color for even rows */
+}
+
+.prose-table th {
+  @apply bg-gray-200 font-semibold;
+  /* Optional: Adds a header style */
+}
+/* styles.css */
+.prose ul {
+  list-style-type: disc;
+  /* Change to 'circle' or 'square' if desired */
+  padding-left: 2rem;
+  line-height: 25px;
+    word-spacing: 1px;
+  /* Indentation for unordered lists */
+}
+
+.prose ol {
+  list-style-type: decimal;
+  /* Change as needed */
+  padding-left: 2rem;
+  line-height: 25px;
+    word-spacing: 2px;
+  /* Indentation for ordered lists */
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 23px;
+  word-spacing: 0px;
+  /* Spacing between list items */
+}
+
+.blog-designing h2,h3,h4,h5{
+  font-size: 20px;
+  color: #104069;
+  margin-top: 25px !important;
+ 
+}
+.blog-designing{
+  color: rgb(95, 83, 136);
+}
+.blog-designing >p{
+  line-height: 25px;
+  word-spacing: 1px;
+}
+.blog-designing table{
+  margin-bottom: 30px !important;
+}
+
+.Background{
+  background-image: linear-gradient(to left top, #104069, #37437f, #65408a, #943488, #be1d76, #cf3881, #df4e8d, #f06399, #ee90c6, #eab9e6, #eddef8, #ffffff);
+}
+
+
+
+
+.add-product-InputCSS {
+  @apply mt-1 block py-2.5 px-4 w-full rounded-md bg-gray-100 border-gray-300 shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Doctor Consultation */
+.Dheading {
+  Font-family: "Cabinet Grotesk Variable";
+  /* line-height: 40px; */
+  /* color: #E4EEF8; */
+  text-align: left;
+}
+
+.DCtext{
+  font-family: Cabinet Grotesk Variable;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* medicine order related css */
+:root {
+  --primary-color: #ed3849;
+  --primary-color-dark: #d23141;
+  --primary-color-light: #f4e5ec;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --extra-light: #f8fafc;
+  --white: #ffffff;
+  --max-width-1400: 1400px;
+  --max-width-1200: 1200px;
+  --max-width-900: 900px;
+  --header-font: "Playfair Display", serif;
+}
+
+.section__container {
+  /* max-width: var(--max-width-1400); */
+  /* margin: auto; */
+  padding: 5rem 1rem;
+}
+
+.header__container {
+  min-height: 450px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  
+}
+
+@media (width < 900px) {
+  .section__container {
+      /* max-width: var(--max-width-1400); */
+      /* margin: auto; */
+      padding: auto;
+    }
+ .header__container {
+   grid-template-columns: repeat(1, 1fr);
+ }
+
+ .product__grid {
+   grid-template-columns: repeat(3, 1fr);
+   gap: 1rem;
+ }
+}
+
+ .header__image {
+   min-height: 300px;
+ }
+.header__image {
+  position: relative;
+  height: 100%;
+}
+
+.header__image img {
+  position: absolute;
+  left: 55%;
+  bottom: -5rem;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 470px;
+}
+
+
+.product__grid {
+  max-width: var(--max-width-900);
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+
+
+@media (width < 600px) {
+  .section__container {
+      /* max-width: var(--max-width-1400); */
+      /* margin: auto; */
+      padding: 1rem 1rem 5rem 1rem;
+    }
+  .product__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+
+.deals__container {
+  background-color: var(--primary-color-light);
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.deals__container:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .deals__container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2rem 1rem;
+  }
+}
+
+.deals__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+}
+
+.deals__image img {
+  position: absolute;
+  max-width: 80%;
+  bottom: -11.8rem;
+  /* height: 400px; */
+    
+  transition: transform 0.3s ease;
+}
+
+
+
+.deals__content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 10;
+}
+
+.deals__content h5 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.deals__content h4 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 800;
+  /* font-family: var(--header-font); */
+ 
+  line-height: 1.2;
+}
+
+.deals__content p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.deals__countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.deals__countdown__card {
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.deals__countdown__card h4 {
+  margin-bottom: 0;
+  font-size: .7rem;
+  margin-top: 1px !important;
+}
+
+.deals__countdown__card p {
+  margin-bottom: 0;
+  font-weight: 700;
+ 
+  font-size: 0.475rem;
+}
+
+@media (max-width: 768px) {
+  .deals__countdown__card {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.banner__container {
+  max-width: var(--max-width-900);
+  margin: auto;
+  margin-top: -40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.banner__Card {
+  text-align: center;
+}
+
+.banner__Card span {
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.banner__Card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+}
+
+.banner__Card p {
+  color: var(--text-light);
+}
+
+.section__header {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--header-font);
+  color: white;
+  text-align: center;
+}
+
+.section__subheader {
+  max-width: 500px;
+  margin: auto;
+  color: var(--text-light);
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Target only mobile and tablet devices in landscape mode */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    display: none;
+  }
+
+  body::before {
+    content: "Please switch to portrait mode";
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20%;
+  }
+}

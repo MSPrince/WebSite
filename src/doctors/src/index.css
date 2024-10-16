@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.Button {
+    background: rgb(228, 9, 76);
+    background: linear-gradient(124deg, rgba(228, 9, 76, 1) 3%, rgba(16, 64, 105, 1) 99%);
+}
