@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Assuming your token is stored in localStorage or Redux state
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://doctors-diary-backend.onrender.com/api/products",
+  baseUrl: "http://localhost:4000/api/products",
   credentials: "include", // for cookie-based authentication
   prepareHeaders: (headers, { getState }) => {
     // If you are using a token, retrieve it here

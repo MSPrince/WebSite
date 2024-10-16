@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const labTestApi = createApi({
   reducerPath: "labTestApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://doctors-diary-backend.onrender.com/api/",
+    baseUrl: "http://localhost:4000/api/",
     credentials: "include",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token"); // Retrieve token from localStorage

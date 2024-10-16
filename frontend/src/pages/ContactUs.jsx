@@ -44,16 +44,13 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/form/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(contact),
-        }
-      );
+      const res = await fetch("http://localhost:4000/api/form/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
 
       if (res.ok) {
         setContact(defaultContactFormData);

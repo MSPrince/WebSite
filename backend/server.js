@@ -86,7 +86,7 @@ app.post("/uploadImage", (req, res) => {
 app.use(errorMiddleware);
 
 // Define the port number for the server to listen on
-const PORT = 5000;
+const PORT = 4000;
 connectCloudinary()
 // Connect to the database and start the server once the connection is successful
 connectDb().then(() => {

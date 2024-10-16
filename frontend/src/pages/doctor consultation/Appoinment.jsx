@@ -105,7 +105,7 @@ function Appointment() {
 
       // Make POST request to book the appointment
       const { data } = await axios.post(
-        "https://doctors-diary-backend.onrender.com/api/auth/book-appointment",
+        "http://localhost:4000/api/auth/book-appointment",
         appointmentData,
         {
           headers: {

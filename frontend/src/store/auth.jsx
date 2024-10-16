@@ -27,15 +27,12 @@ export const AuthProvider = ({ children }) => {
 
     try {
       setIsLoading(true);
-      const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/auth/user",
-        {
-          method: "GET",
-          headers: {
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/auth/user", {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -56,12 +53,9 @@ export const AuthProvider = ({ children }) => {
   // Fetch services data from the database
   const getServices = async () => {
     try {
-      const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/data/service",
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/data/service", {
+        method: "GET",
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -80,12 +74,9 @@ export const AuthProvider = ({ children }) => {
   // Fetch blog data from the database
   const getBlogsData = async () => {
     try {
-      const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/data/blog",
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/data/blog", {
+        method: "GET",
+      });
 
       if (response.ok) {
         const data = await response.json();

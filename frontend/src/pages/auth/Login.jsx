@@ -30,16 +30,13 @@ const Login = () => {
     console.log("User Data:", user);
 
     try {
-      const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/auth/login",
-        {
-          method: "POST", // Changed to POST
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user), // Send user credentials in body
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/auth/login", {
+        method: "POST", // Changed to POST
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user), // Send user credentials in body
+      });
 
       if (response.ok) {
         const res_data = await response.json();

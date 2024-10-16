@@ -23,7 +23,7 @@ const AdminUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `https://doctors-diary-backend.onrender.com/api/admin/users/${params.id}`,
+        `http://localhost:4000/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const AdminUpdate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://doctors-diary-backend.onrender.com/api/admin/users/update/${params.id}`,
+        `http://localhost:4000/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {

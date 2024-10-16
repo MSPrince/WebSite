@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const statsApi = createApi({
   reducerPath: "statsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://doctors-diary-backend.onrender.com/api/stats`,
+    baseUrl: `http://localhost:4000/api/stats`,
     credentials: "include",
   }),
   tagTypes: ["Stats"],

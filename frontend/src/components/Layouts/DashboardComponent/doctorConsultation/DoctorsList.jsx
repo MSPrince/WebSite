@@ -9,7 +9,7 @@ function DoctorsList() {
   const getAllDoctor = async () => {
     try {
       const { data } = await axios.post(
-        "https://doctors-diary-backend.onrender.com/api/docadmin/get-doctor"
+        "http://localhost:4000/api/docadmin/get-doctor"
       );
       setDoctors(data); // Set the retrieved data to the state
       console.log(data);
@@ -26,7 +26,7 @@ function DoctorsList() {
     const token = localStorage.getItem("token");
     try {
       const { data } = await axios.post(
-        "https://doctors-diary-backend.onrender.com/api/docadmin/change-availability",
+        "http://localhost:4000/api/docadmin/change-availability",
         { docId },
         {
           headers: {

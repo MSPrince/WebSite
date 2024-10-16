@@ -15,7 +15,7 @@ function AllAppointment() {
   const getAllAppointments = async () => {
     try {
       const { data } = await axios.get(
-        "https://doctors-diary-backend.onrender.com/api/docadmin/all-appointments",
+        "http://localhost:4000/api/docadmin/all-appointments",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ function AllAppointment() {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "https://doctors-diary-backend.onrender.com/api/docadmin/cancle-appointments",
+        "http://localhost:4000/api/docadmin/cancle-appointments",
         { appointmentId },
         {
           headers: {

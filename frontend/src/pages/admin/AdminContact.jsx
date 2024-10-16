@@ -9,16 +9,13 @@ function AdminContact() {
 
   const getContactData = async () => {
     try {
-      const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/admin/contacts",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/admin/contacts", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
+      });
       const data = await response.json();
       console.log("data contact", data);
 
@@ -33,7 +30,7 @@ function AdminContact() {
   const deleteContactById = async (id) => {
     try {
       const response = await fetch(
-        `https://doctors-diary-backend.onrender.com/api/admin/contacts/delete/${id}`,
+        `http://localhost:4000/api/admin/contacts/delete/${id}`,
         {
           method: "DELETE",
           headers: {

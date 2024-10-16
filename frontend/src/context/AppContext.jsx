@@ -16,9 +16,7 @@ const AppContextProvider = (props) => {
 
   const getDoctorsData = async () => {
     try {
-      const { data } = await axios.get(
-        "https://doctors-diary-backend.onrender.com/api/doctor/list"
-      );
+      const { data } = await axios.get("http://localhost:4000/api/doctor/list");
       setDoctors(data); // Update state with fetched data
       console.log("Doctors data from AppContext:", data);
     } catch (error) {

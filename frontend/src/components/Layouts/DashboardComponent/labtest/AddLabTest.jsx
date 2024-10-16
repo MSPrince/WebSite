@@ -128,7 +128,7 @@ function AddLabTest() {
       const token = localStorage.getItem("token"); // Or however you're storing the token
 
       const response = await fetch(
-        "https://doctors-diary-backend.onrender.com/api/labtest/lab-test/createLabtest",
+        "http://localhost:4000/api/labtest/lab-test/createLabtest",
         {
           method: "POST",
           headers: {
