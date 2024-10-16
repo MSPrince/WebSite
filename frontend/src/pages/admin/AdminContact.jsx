@@ -9,13 +9,16 @@ function AdminContact() {
 
   const getContactData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/contacts", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/admin/contacts",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authorizationToken,
+          },
+        }
+      );
       const data = await response.json();
       console.log("data contact", data);
 
@@ -30,7 +33,7 @@ function AdminContact() {
   const deleteContactById = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/contacts/delete/${id}`,
+        `https://doctors-diary-backend.onrender.com/api/admin/contacts/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -86,19 +89,19 @@ function AdminContact() {
   ];
 
   // Map contactData to the format expected by DataGrid
- const rows = contactData
-   .slice() // Create a shallow copy of the array
-   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-   .reverse() // Adjust sorting based on your date field
-   .map((contact) => ({
-     id: contact._id,
-     name: contact.name,
-     email: contact.email,
-     phone: contact.phone,
-     subject: contact.subject,
-     message: contact.message,
-     address: contact.address,
-   }));
+  const rows = contactData
+    .slice() // Create a shallow copy of the array
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .reverse() // Adjust sorting based on your date field
+    .map((contact) => ({
+      id: contact._id,
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone,
+      subject: contact.subject,
+      message: contact.message,
+      address: contact.address,
+    }));
 
   return (
     <div className="mt-9 px-6" style={{ height: 400, width: "100%" }}>

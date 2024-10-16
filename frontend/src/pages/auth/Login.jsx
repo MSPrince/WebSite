@@ -30,13 +30,16 @@ const Login = () => {
     console.log("User Data:", user);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST", // Changed to POST
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user), // Send user credentials in body
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/auth/login",
+        {
+          method: "POST", // Changed to POST
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user), // Send user credentials in body
+        }
+      );
 
       if (response.ok) {
         const res_data = await response.json();
@@ -56,10 +59,9 @@ const Login = () => {
     }
   };
 
-
- useEffect(() => {
-   window.scrollTo(0, 0), (document.title = "Log In : Doctor's Diary");
- }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0), (document.title = "Log In : Doctor's Diary");
+  }, []);
   return (
     <div
       className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-justify"
@@ -158,7 +160,6 @@ const Login = () => {
                   Let's Sign Up
                 </Link>
               </p>
-           
             </div>
           </form>
         </div>

@@ -4,17 +4,16 @@ import { toast } from "react-toastify";
 import bgImage from "../assets/home background.avif";
 
 function DoctorProfile() {
-  
   const [isEdit, setIsEdit] = useState(false);
   const dtoken = localStorage.getItem("dtoken");
-const [profileData, setProfileData] = useState(null);
+  const [profileData, setProfileData] = useState(null);
   const getProfileData = async () => {
     try {
       console.log("Fetching profile data...");
       console.log("dtoken:", dtoken);
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/doctor/profile",
+        "https://doctors-diary-backend.onrender.com/api/doctor/profile",
         {
           headers: {
             Authorization: `Bearer ${dtoken}`,
@@ -45,7 +44,7 @@ const [profileData, setProfileData] = useState(null);
         avilable: profileData.avilable,
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/doctor/update-profile",
+        "https://doctors-diary-backend.onrender.com/api/doctor/update-profile",
         updateData,
         {
           headers: {
@@ -77,12 +76,11 @@ const [profileData, setProfileData] = useState(null);
   useEffect(() => {
     getProfileData();
   }, []);
-console.log(profileData);
+  console.log(profileData);
 
-
-   useEffect(() => {
-     window.scrollTo(0, 0), (document.title = "Profile - Doctor's Diary");
-   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0), (document.title = "Profile - Doctor's Diary");
+  }, []);
   return (
     <div
       className="p-6 min-h-screen mx-auto"

@@ -1,4 +1,3 @@
-
 // import CompanyLogo from "../../assets/Doctor’s Diary (160 x 40 px).svg";
 // import llogo from "../../assets/labtest/New folder/DoctorsDiary (41).jpg";
 import { useNavigate, useParams } from "react-router-dom";
@@ -24,7 +23,7 @@ const UserUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `https://doctors-diary-backend.onrender.com/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -62,7 +61,7 @@ const UserUpdate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/update/${params.id}`,
+        `https://doctors-diary-backend.onrender.com/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {

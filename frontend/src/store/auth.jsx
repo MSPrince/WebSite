@@ -8,8 +8,8 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const [blog, setBlog] = useState([]);
   const [fetchError, setFetchError] = useState(null);
-  const authorizationToken =  `Bearer ${token}`
-  const [isLoading , setIsLoading] =useState(true)
+  const authorizationToken = `Bearer ${token}`;
+  const [isLoading, setIsLoading] = useState(true);
 
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
@@ -26,19 +26,22 @@ export const AuthProvider = ({ children }) => {
     if (!token) return; // Avoid making the request if there's no token
 
     try {
-      setIsLoading(true)
-      const response = await fetch("http://localhost:5000/api/auth/user", {
-        method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      setIsLoading(true);
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/auth/user",
+        {
+          method: "GET",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
         console.log("User data retrieved:", data.userData);
         setUser(data.userData);
-         setIsLoading(false);
+        setIsLoading(false);
       } else {
         setIsLoading(false);
         console.error("Failed to fetch user data:", response.status);
@@ -53,9 +56,12 @@ export const AuthProvider = ({ children }) => {
   // Fetch services data from the database
   const getServices = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/data/service", {
-        method: "GET",
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/data/service",
+        {
+          method: "GET",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -74,9 +80,12 @@ export const AuthProvider = ({ children }) => {
   // Fetch blog data from the database
   const getBlogsData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/data/blog", {
-        method: "GET",
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/data/blog",
+        {
+          method: "GET",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -92,21 +101,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-// --------------------------------------
+  // --------------------------------------
 
-
-
-
-
-
-
-// ---------------------------------------
-
-
-
-
-
-
+  // ---------------------------------------
 
   useEffect(() => {
     getServices();
@@ -131,7 +128,7 @@ export const AuthProvider = ({ children }) => {
         blog,
         fetchError,
         authorizationToken,
-        isLoading
+        isLoading,
       }}
     >
       {children}

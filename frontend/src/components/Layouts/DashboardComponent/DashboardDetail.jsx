@@ -38,12 +38,15 @@ function DashboardDetail() {
   // Fetch all users
   const getAllUserData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/users", {
-        method: "GET",
-        headers: {
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/admin/users",
+        {
+          method: "GET",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
@@ -59,13 +62,16 @@ function DashboardDetail() {
   // Fetch contact data
   const getContactData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/contacts", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: authorizationToken,
-        },
-      });
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/admin/contacts",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authorizationToken,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -85,7 +91,7 @@ function DashboardDetail() {
       }
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/docadmin/getAdminDashboardData",
+        "https://doctors-diary-backend.onrender.com/api/docadmin/getAdminDashboardData",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -169,7 +175,9 @@ function DashboardDetail() {
             className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-4"
           >
             <FaHouseUser className="text-blue-500 text-3xl" />
-            <p className="text-primary text-lg font-semibold">{users.length} Users</p>
+            <p className="text-primary text-lg font-semibold">
+              {users.length} Users
+            </p>
           </Link>
 
           <Link
@@ -177,7 +185,9 @@ function DashboardDetail() {
             className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-4"
           >
             <FaBlog className="text-green-500 text-3xl" />
-            <p className="text-primary text-lg font-semibold">{blogs.length} Blogs</p>
+            <p className="text-primary text-lg font-semibold">
+              {blogs.length} Blogs
+            </p>
           </Link>
           <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-4">
             <MdAdminPanelSettings className="text-red-500 text-3xl" />
@@ -202,7 +212,9 @@ function DashboardDetail() {
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-4">
             <FaBlog className="text-green-500 text-3xl" />
-            <p className="text-primary text-lg font-semibold">{labtest.length} Lab Test</p>
+            <p className="text-primary text-lg font-semibold">
+              {labtest.length} Lab Test
+            </p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-4">
             <img
@@ -210,7 +222,9 @@ function DashboardDetail() {
               className="text-yellow-500 w-10"
               alt="Doctor Icon"
             />
-            <p className="text-primary text-lg font-semibold">{dashData.doctors} Doctors</p>
+            <p className="text-primary text-lg font-semibold">
+              {dashData.doctors} Doctors
+            </p>
           </div>
           <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center space-x-4">
             <img

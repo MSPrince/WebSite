@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import bgImage from "../../assets/background/home background.avif";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -13,34 +13,37 @@ const ResetPassword = () => {
   const sendLink = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/sendResetLink", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      const res = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/auth/sendResetLink",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
 
       const data = await res.json();
 
       if (data.status === 201) {
         // Corrected strict comparison
-           toast.success("Reset link sent successfully!");
+        toast.success("Reset link sent successfully!");
         setMessage("Reset link sent successfully!");
-     // Display the success message
-      setEmail("");
+        // Display the success message
+        setEmail("");
       } else {
         toast.warning("Invalid email");
       }
     } catch (error) {
-      toast.error("Something went wrong. Please try again later." , error);
+      toast.error("Something went wrong. Please try again later.", error);
     }
   };
 
-   useEffect(() => {
-     window.scrollTo(0, 0),
-       (document.title = "Forgot Password : Doctor's Diary");
-   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0),
+      (document.title = "Forgot Password : Doctor's Diary");
+  }, []);
   return (
     <div
       className="mx-auto max-w-full px-2 sm:px-6 lg:px-8 text-justify "

@@ -21,91 +21,90 @@ function AddDoctors() {
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
   const validatePassword = (password) => password.length >= 8;
 
-const onSubmitHandler = async (event) => {
-  event.preventDefault();
-  setLoading(true);
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
+    setLoading(true);
 
-  if (!docImg) {
-    toast.error("Please select a doctor image");
-    setLoading(false);
-    return;
-  }
-  if (!validateEmail(email)) {
-    toast.error("Please enter a valid email address.");
-    setLoading(false);
-    return;
-  }
-  if (!validatePassword(password)) {
-    toast.error("Password must be at least 8 characters long.");
-    setLoading(false);
-    return;
-  }
-
-  try {
-    // Simulate an unexpected error (optional: remove this block to test real conditions)
-    if (Math.random() < 0.2) {
-      // 20% chance of failure
-      throw new Error("Unexpected error occurred during form submission.");
+    if (!docImg) {
+      toast.error("Please select a doctor image");
+      setLoading(false);
+      return;
+    }
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+    if (!validatePassword(password)) {
+      toast.error("Password must be at least 8 characters long.");
+      setLoading(false);
+      return;
     }
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("experience", experience);
-    formData.append("fees", fees);
-    formData.append("about", about);
-    formData.append("speciality", speciality);
-    formData.append("degree", degree);
-    formData.append("address", address);
-    formData.append("image", docImg);
-
-    const token = localStorage.getItem("token");
-
-    const { data } = await axios.post(
-      "http://localhost:5000/api/docadmin/add-doctor",
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
+    try {
+      // Simulate an unexpected error (optional: remove this block to test real conditions)
+      if (Math.random() < 0.2) {
+        // 20% chance of failure
+        throw new Error("Unexpected error occurred during form submission.");
       }
-    );
 
-    if (data.success) {
-      toast.success(data.message);
-      setName("");
-      setEmail("");
-      setPassword("");
-      setExperience("1 year");
-      setFees("");
-      setAbout("");
-      setSpeciality("General physician");
-      setDegree("");
-      setAddress("");
-      setDocImg(null);
-    } else {
-      toast.success(data.message);
-    }
-  } catch (error) {
-    // Handle unexpected errors
-    if (error.response && error.response.data) {
-      toast.error(error.response.data.message || "An error occurred.");
-    } else if (
-      error.message === "Unexpected error occurred during form submission."
-    ) {
-      // Custom unexpected error message
-      toast.error("Unexpected error: Please try again later.");
-    } else {
-      // Fallback for other errors
-      toast.error("An unexpected error occurred. Please try again.");
-    }
-  } finally {
-    setLoading(false);
-  }
-};
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("experience", experience);
+      formData.append("fees", fees);
+      formData.append("about", about);
+      formData.append("speciality", speciality);
+      formData.append("degree", degree);
+      formData.append("address", address);
+      formData.append("image", docImg);
 
+      const token = localStorage.getItem("token");
+
+      const { data } = await axios.post(
+        "https://doctors-diary-backend.onrender.com/api/docadmin/add-doctor",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (data.success) {
+        toast.success(data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setExperience("1 year");
+        setFees("");
+        setAbout("");
+        setSpeciality("General physician");
+        setDegree("");
+        setAddress("");
+        setDocImg(null);
+      } else {
+        toast.success(data.message);
+      }
+    } catch (error) {
+      // Handle unexpected errors
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.message || "An error occurred.");
+      } else if (
+        error.message === "Unexpected error occurred during form submission."
+      ) {
+        // Custom unexpected error message
+        toast.error("Unexpected error: Please try again later.");
+      } else {
+        // Fallback for other errors
+        toast.error("An unexpected error occurred. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];

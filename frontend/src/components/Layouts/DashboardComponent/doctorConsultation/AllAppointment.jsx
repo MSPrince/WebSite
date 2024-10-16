@@ -15,7 +15,7 @@ function AllAppointment() {
   const getAllAppointments = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/docadmin/all-appointments",
+        "https://doctors-diary-backend.onrender.com/api/docadmin/all-appointments",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ function AllAppointment() {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/docadmin/cancle-appointments",
+        "https://doctors-diary-backend.onrender.com/api/docadmin/cancle-appointments",
         { appointmentId },
         {
           headers: {
@@ -167,13 +167,16 @@ function AllAppointment() {
   ];
 
   const filteredRows = appointments
-    .filter((appointment) =>
-      appointment.userData?.username
-        .toLowerCase()
-        .includes(filterText.toLowerCase()) ||
-      appointment.docData?.name.toLowerCase().includes(filterText.toLowerCase()) ||
-      appointment.slotDate.includes(filterText) ||
-      appointment.slotTime.includes(filterText)
+    .filter(
+      (appointment) =>
+        appointment.userData?.username
+          .toLowerCase()
+          .includes(filterText.toLowerCase()) ||
+        appointment.docData?.name
+          .toLowerCase()
+          .includes(filterText.toLowerCase()) ||
+        appointment.slotDate.includes(filterText) ||
+        appointment.slotTime.includes(filterText)
     )
     .map((appointment, index) => ({
       id: appointment._id,

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const blogApi = createApi({
   reducerPath: "blogApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/",
+    baseUrl: "https://doctors-diary-backend.onrender.com/api/",
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
       const token = localStorage.getItem("token"); // Retrieve token from localStorage
@@ -12,7 +12,6 @@ export const blogApi = createApi({
       }
       return headers;
     },
-   
   }),
   tagTypes: ["Blogs"],
   endpoints: (builder) => ({
@@ -27,9 +26,6 @@ export const blogApi = createApi({
       providesTags: (result, error, id) => [{ type: "Blogs", id }],
     }),
 
-
-
-    
     fetchRelatedBlogs: builder.query({
       query: (id) => `/blogs/blogPost/related/${id}`,
     }),
@@ -39,7 +35,7 @@ export const blogApi = createApi({
         url: `/blogs/blogPost/create-post`,
         method: "POST",
         body: newBlog,
-        credentials: "include", 
+        credentials: "include",
       }),
       invalidatesTags: ["Blogs"],
     }),
@@ -58,7 +54,7 @@ export const blogApi = createApi({
       query: (id) => ({
         url: `/blogs/blogPost/${id}`,
         method: "DELETE",
-        credentials: "include", 
+        credentials: "include",
       }),
       invalidatesTags: (result, error, { id }) => [{ type: "Blogs", id }],
     }),

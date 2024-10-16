@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { assets } from "../assets/assets_admin/assets";
 import bgImage from "../assets/home background.avif";
 
-
 function DoctorDashboard() {
   const dToken = localStorage.getItem("dtoken");
   const [dashData, setDashData] = useState(null);
@@ -14,7 +13,7 @@ function DoctorDashboard() {
     setLoading(true); // Start loading
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/doctor/dashboard-data",
+        "https://doctors-diary-backend.onrender.com/api/doctor/dashboard-data",
         {
           headers: {
             Authorization: `Bearer ${dToken}`,
@@ -38,7 +37,7 @@ function DoctorDashboard() {
   const cancelAppointment = async (appointmentId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/doctor/cancel-appointment",
+        "https://doctors-diary-backend.onrender.com/api/doctor/cancel-appointment",
         { appointmentId },
         {
           headers: {
@@ -66,9 +65,9 @@ function DoctorDashboard() {
   }, [dToken]);
 
   console.log("Dashboard Data:", dashData);
- useEffect(() => {
-   window.scrollTo(0, 0), (document.title = "Dashboard");
- }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0), (document.title = "Dashboard");
+  }, []);
   return (
     <div
       className="px-4 py-6 "

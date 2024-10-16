@@ -9,7 +9,7 @@ function DoctorsList() {
   const getAllDoctor = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/docadmin/get-doctor"
+        "https://doctors-diary-backend.onrender.com/api/docadmin/get-doctor"
       );
       setDoctors(data); // Set the retrieved data to the state
       console.log(data);
@@ -23,14 +23,15 @@ function DoctorsList() {
   };
 
   const changeAvailability = async (docId) => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token");
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/docadmin/change-availability",
-        { docId }, {
+        "https://doctors-diary-backend.onrender.com/api/docadmin/change-availability",
+        { docId },
+        {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -45,11 +46,9 @@ function DoctorsList() {
         );
         window.location.reload();
         toast.error("Failed to change availability.");
-         
       } else {
         window.location.reload();
-          toast.success("Doctor's availability changed successfully.");
-          
+        toast.success("Doctor's availability changed successfully.");
       }
     } catch (error) {
       const errorMessage = error.response
@@ -64,9 +63,9 @@ function DoctorsList() {
     getAllDoctor();
   }, []);
 
-     useEffect(() => {
-       window.scrollTo(0, 0);
-     }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div
       className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 py-8"

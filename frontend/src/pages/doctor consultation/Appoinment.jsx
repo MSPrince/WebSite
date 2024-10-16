@@ -10,9 +10,9 @@ import axios from "axios";
 function Appointment() {
   const { docId } = useParams();
   const navigate = useNavigate();
-  const token = localStorage.getItem('token')
-  console.log("book appointment token",token);
-  
+  const token = localStorage.getItem("token");
+  console.log("book appointment token", token);
+
   const { doctors, currencySymbol } = useContext(AppContext);
   const [docInfo, setDocInfo] = useState(null);
   const [docSlots, setDocSlots] = useState([]);
@@ -73,65 +73,59 @@ function Appointment() {
     setDocSlots(slots);
   };
 
+  const bookAppointment = async () => {
+    const token = localStorage.getItem("token");
 
-const bookAppointment = async () => {
-  const token = localStorage.getItem("token");
+    // Check if token exists
+    if (!token) {
+      toast.warning("Please login first");
+      navigate("/login");
+      return; // Exit the function if token is not available
+    }
 
-  // Check if token exists
-  if (!token) {
-    toast.warning("Please login first");
-    navigate("/login");
-    return; // Exit the function if token is not available
-  }
+    if (!slotTime) {
+      toast.warning("Please select a time slot.");
+      return; // Exit if no time is selected
+    }
 
-  if (!slotTime) {
-    toast.warning("Please select a time slot.");
-    return; // Exit if no time is selected
-  }
+    try {
+      // Extract the date from the selected slot
+      const date = docSlots[slotIndex][0].datetime;
+      console.log(date);
 
-  try {
-    // Extract the date from the selected slot
-    const date = docSlots[slotIndex][0].datetime;
-    console.log(date);
+      // Format the date to "dd-mm-yyyy"
+      let day = date.getDate();
+      let month = date.getMonth() + 1; // Months are zero-indexed
+      let year = date.getFullYear();
+      const slotDate = `${day}-${month < 10 ? "0" : ""}${month}-${year}`;
+      console.log("Formatted Slot Date:", slotDate);
 
-    // Format the date to "dd-mm-yyyy"
-    let day = date.getDate();
-    let month = date.getMonth() + 1; // Months are zero-indexed
-    let year = date.getFullYear();
-    const slotDate = `${day}-${month < 10 ? "0" : ""}${month}-${year}`;
-    console.log("Formatted Slot Date:", slotDate);
+      // Prepare request payload
+      const appointmentData = { docId, slotDate, slotTime };
 
-    // Prepare request payload
-    const appointmentData = { docId, slotDate, slotTime };
+      // Make POST request to book the appointment
+      const { data } = await axios.post(
+        "https://doctors-diary-backend.onrender.com/api/auth/book-appointment",
+        appointmentData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-    // Make POST request to book the appointment
-    const { data } = await axios.post(
-      "http://localhost:5000/api/auth/book-appointment",
-      appointmentData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    console.log("Appointment Data:", data);
-    toast.success("Appointment booked successfully!");
-    navigate("/my-appoinments");
-  } catch (error) {
-    console.error("Error booking appointment:", error);
-    const errorMessage =
-      error.response?.data?.message ||
-      "Failed to book appointment. Please try again.";
-    toast.error(errorMessage); // Provide user feedback
-  }
-};
-
-
-
-
-
+      console.log("Appointment Data:", data);
+      toast.success("Appointment booked successfully!");
+      navigate("/my-appoinments");
+    } catch (error) {
+      console.error("Error booking appointment:", error);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Failed to book appointment. Please try again.";
+      toast.error(errorMessage); // Provide user feedback
+    }
+  };
 
   useEffect(() => {
     fetchInfo();
@@ -143,9 +137,9 @@ const bookAppointment = async () => {
     }
   }, [docInfo]);
 
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div

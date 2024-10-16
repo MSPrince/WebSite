@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaInstagram } from "react-icons/fa";
-import {useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import bgImage from "../assets/home background.avif";
 import { toast } from "react-toastify";
@@ -8,19 +8,19 @@ import { DoctorContext } from "../context/DoctorContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [user , setUser] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { setDToken } = useContext(DoctorContext);
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/doctor/login",
+        "https://doctors-diary-backend.onrender.com/api/doctor/login",
         { email: email.trim(), password: password.trim() },
         {
           headers: {
@@ -29,18 +29,16 @@ const navigate = useNavigate();
           },
         }
       );
- console.log( "hihhihihi",data);
+      console.log("hihhihihi", data);
       if (data.token) {
         localStorage.setItem("dtoken", data.token); // Store the token
         setDToken(data.token); // Set token in context
-        setUser(data.doctor)
-      //  console.log("doctor",data.doctor);
-       
-        
-     
-     // Redirect to your desired page
-          //  toast.success("Login Successful!");
-           navigate("/doctor-dashboard");
+        setUser(data.doctor);
+        //  console.log("doctor",data.doctor);
+
+        // Redirect to your desired page
+        //  toast.success("Login Successful!");
+        navigate("/doctor-dashboard");
       } else {
         toast.error(data.message || "Invalid Email or Password");
       }
@@ -52,11 +50,11 @@ const navigate = useNavigate();
     }
   };
 
-  console.log("user",user);
-  
-   useEffect(() => {
-     window.scrollTo(0, 0), (document.title = "Login - Doctor's Diary");
-   }, []);
+  console.log("user", user);
+
+  useEffect(() => {
+    window.scrollTo(0, 0), (document.title = "Login - Doctor's Diary");
+  }, []);
   return (
     <div
       className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-justify"

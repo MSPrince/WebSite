@@ -65,35 +65,35 @@ const Signup = () => {
     }
   };
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
-   setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-   const imageUrl = await uploadImage();
-   if (!imageUrl) {
-     setLoading(false);
-     return; // Don't proceed if image upload failed
-   }
+    const imageUrl = await uploadImage();
+    if (!imageUrl) {
+      setLoading(false);
+      return; // Don't proceed if image upload failed
+    }
 
-   try {
-     const response = await fetch(
-       "http://localhost:5000/api/auth/registration",
-       {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify({ ...user, profileImage: imageUrl }), // Include image URL in the user data
-       }
-     );
+    try {
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/auth/registration",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...user, profileImage: imageUrl }), // Include image URL in the user data
+        }
+      );
 
-     // Ensure the response is okay
-     if (!response.ok) {
-       const errorData = await response.json(); // Capture error data
-       throw new Error(errorData.message || "Registration failed");
-     }
+      // Ensure the response is okay
+      if (!response.ok) {
+        const errorData = await response.json(); // Capture error data
+        throw new Error(errorData.message || "Registration failed");
+      }
 
-     const res_data = await response.json();
+      const res_data = await response.json();
       navigate("/login"); // Ensure that this is correct
       // Reset the form
       setUser({
@@ -104,22 +104,22 @@ const Signup = () => {
         completeAddress: "",
         profession: "",
       });
-     toast.success("Registration successful");
+      toast.success("Registration successful");
 
-     // Ensure the token is stored
-     storetokenInLS(res_data.token); // Make sure this function works as intended
+      // Ensure the token is stored
+      storetokenInLS(res_data.token); // Make sure this function works as intended
 
-     // Redirect to login page
-    
-     setImagePreview(null);
-     setImage(null);
-   } catch (error) {
-     console.error(error);
-    //  toast.error(error.message || "Registration failed");
-   } finally {
-     setLoading(false);
-   }
- };
+      // Redirect to login page
+
+      setImagePreview(null);
+      setImage(null);
+    } catch (error) {
+      console.error(error);
+      //  toast.error(error.message || "Registration failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0), (document.title = "Sign Up : Doctor's Diary");

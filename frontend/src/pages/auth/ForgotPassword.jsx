@@ -9,40 +9,43 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState("");
   const { id, token } = useParams();
 
- const userValid = async () => {
-   try {
-     const res = await fetch(
-       `http://localhost:5000/api/auth/forgotPassword/${id}/${token}`,
-       {
-         method: "GET",
-         headers: { "Content-Type": "application/json" },
-       }
-     );
-     const data = await res.json();
+  const userValid = async () => {
+    try {
+      const res = await fetch(
+        `https://doctors-diary-backend.onrender.com/api/auth/forgotPassword/${id}/${token}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const data = await res.json();
 
-     if (data.status === 201) {
-       console.log("User valid");
-     } else {
-       toast.error("Invalid or expired token", { position: "top-center" });
-     }
-   } catch (error) {
-     toast.error("An error occurred while validating the token", {
-       position: "top-center",
-     });
-     console.error("Error validating token:", error);
-   }
- };
+      if (data.status === 201) {
+        console.log("User valid");
+      } else {
+        toast.error("Invalid or expired token", { position: "top-center" });
+      }
+    } catch (error) {
+      toast.error("An error occurred while validating the token", {
+        position: "top-center",
+      });
+      console.error("Error validating token:", error);
+    }
+  };
 
   const setval = (e) => setPassword(e.target.value);
 
   const sendpassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/auth/${id}/${token}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      });
+      const res = await fetch(
+        `https://doctors-diary-backend.onrender.com/api/auth/${id}/${token}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password }),
+        }
+      );
 
       const data = await res.json();
 
@@ -69,9 +72,10 @@ const ForgotPassword = () => {
     userValid();
   }, [id, token]);
 
-   useEffect(() => {
-     window.scrollTo(0, 0), (document.title = "Update Password : Doctor's Diary");
-   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0),
+      (document.title = "Update Password : Doctor's Diary");
+  }, []);
   return (
     <div
       className="mx-auto max-w-full px-2 sm:px-6 lg:px-8 text-justify"

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const reviewsApi = createApi({
   reducerPath: "reviewsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/reviews",
+    baseUrl: "https://doctors-diary-backend.onrender.com/api/reviews",
     credentials: "include", // Ensures cookies are included in cross-origin requests
   }),
   tagTypes: ["Reviews"],
@@ -46,5 +46,4 @@ export const {
   usePostReviewMutation,
   useGetReviewsCountQuery,
   useGetReviewByUserIdQuery,
-  
 } = reviewsApi;

@@ -14,7 +14,7 @@ function MyAppoinment() {
   const getUserAppointments = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/auth/appointments",
+        "https://doctors-diary-backend.onrender.com/api/auth/appointments",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ function MyAppoinment() {
     try {
       console.log("appointmentId", appointmentId);
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/cancel-appointments",
+        "https://doctors-diary-backend.onrender.com/api/auth/cancel-appointments",
         {
           appointmentId: appointmentId,
         },
@@ -71,7 +71,6 @@ function MyAppoinment() {
       getUserAppointments();
     }
   }, [token]);
-
 
   const months = [
     "",
@@ -138,12 +137,11 @@ function MyAppoinment() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 justify-end">
-                {!item.cancelled &&
-                  !item.isCompleted &&(
-                    <button className="text-sm text-white text-center sm:min-w-32 py-2 border rounded bg-primary">
-                      Pay Online
-                    </button>
-                  )}
+                {!item.cancelled && !item.isCompleted && (
+                  <button className="text-sm text-white text-center sm:min-w-32 py-2 border rounded bg-primary">
+                    Pay Online
+                  </button>
+                )}
 
                 {!item.cancelled && !item.isCompleted && (
                   <button

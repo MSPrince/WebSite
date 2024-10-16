@@ -22,7 +22,7 @@ function AddLabTest() {
   const [specialInstruction, setSpecialInstruction] = useState("");
   const [testCoverImg, setTestCoverImg] = useState("");
   const [testCategory, setTestCategory] = useState("");
-  const [tat , setTat] = useState("")
+  const [tat, setTat] = useState("");
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
@@ -102,67 +102,65 @@ function AddLabTest() {
     };
   }, []);
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   try {
-     const includeTest = await editorRef.current.save();
-     console.log(includeTest);
+    try {
+      const includeTest = await editorRef.current.save();
+      console.log(includeTest);
 
-     const newLabtest = {
-       testName,
-       testDescription,
-       realprice: parseFloat(realPrice), // Ensure correct casing
-       mrp: parseFloat(mrp),
-       sampleType,
-       specialInstruction,
-       testCoverImg,
-       testCategory,
-       includeTest,
-       tat,
-     };
+      const newLabtest = {
+        testName,
+        testDescription,
+        realprice: parseFloat(realPrice), // Ensure correct casing
+        mrp: parseFloat(mrp),
+        sampleType,
+        specialInstruction,
+        testCoverImg,
+        testCategory,
+        includeTest,
+        tat,
+      };
 
-     console.log("New lab test data being sent:", newLabtest);
+      console.log("New lab test data being sent:", newLabtest);
 
-     // Assuming you have the token
-     const token = localStorage.getItem("token"); // Or however you're storing the token
+      // Assuming you have the token
+      const token = localStorage.getItem("token"); // Or however you're storing the token
 
-     const response = await fetch(
-       "http://localhost:5000/api/labtest/lab-test/createLabtest",
-       {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-           Authorization: `Bearer ${token}`,
-         },
-         body: JSON.stringify(newLabtest),
-       }
-     );
+      const response = await fetch(
+        "https://doctors-diary-backend.onrender.com/api/labtest/lab-test/createLabtest",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(newLabtest),
+        }
+      );
 
-     if (!response.ok) {
-       const errorData = await response.json();
-       console.error("Error data from server:", errorData);
-       throw new Error(
-         `Error: ${errorData.message || "Failed to create lab test"}`
-       );
-     }
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error data from server:", errorData);
+        throw new Error(
+          `Error: ${errorData.message || "Failed to create lab test"}`
+        );
+      }
 
-     const data = await response.json();
-     console.log("Lab test created successfully:", data);
-     toast.success("Lab test added successfully!");
+      const data = await response.json();
+      console.log("Lab test created successfully:", data);
+      toast.success("Lab test added successfully!");
       navigate("/admin/dashboard");
-   } catch (error) {
-     console.error("Error while creating lab test:", error.message);
-     setMessage("Failed to submit post, please try again.");
-     toast.error("Failed to add lab test, please try again!");
-   }
- };
+    } catch (error) {
+      console.error("Error while creating lab test:", error.message);
+      setMessage("Failed to submit post, please try again.");
+      toast.error("Failed to add lab test, please try again!");
+    }
+  };
 
-
-
-   useEffect(() => {
-     window.scrollTo(0, 0);
-   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-7 py-8 bg-gray-50 rounded-lg shadow-lg">

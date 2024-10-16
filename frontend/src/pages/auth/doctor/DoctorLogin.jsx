@@ -3,49 +3,49 @@ import { FaGoogle, FaInstagram } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
 import bgImage from "../../../assets/background/home background.avif";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const DoctorLogin = () => {
   const [dToken, setDToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const navigate = useNavigate()
- const onSubmitHandler = async (event) => {
-   event.preventDefault();
+  const navigate = useNavigate();
+  const onSubmitHandler = async (event) => {
+    event.preventDefault();
 
-   try {
-     // Log the data before making the request to verify the values.
-     console.log("Submitting login request with:", { email, password });
+    try {
+      // Log the data before making the request to verify the values.
+      console.log("Submitting login request with:", { email, password });
 
-     const { data } = await axios.post(
-       "http://localhost:5000/api/doctor/login",
-       { email: email.trim(), password: password.trim() },
-       {
-         headers: {
-           "Content-Type": "application/json",
-         },
-       }
-     );
+      const { data } = await axios.post(
+        "https://doctors-diary-backend.onrender.com/api/doctor/login",
+        { email: email.trim(), password: password.trim() },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-     console.log("Response from API:", data);
+      console.log("Response from API:", data);
 
-     // Check if the response contains a token to determine a successful login
-     if (data.token) {
-       localStorage.setItem("token", data.token);
-       setDToken(data.token);
-       toast.success("Login Successful!");
-       navigate("/doctor-dashboard");
-      //  console.log("dTokhhhen", dToken);
-     } else {
-       toast.error(data.message || "Invalid Email or Password");
-     }
-   } catch (error) {
-     console.error("Login error:", error);
-     alert("An error occurred during login. Please try again later.");
-   }
- };
+      // Check if the response contains a token to determine a successful login
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        setDToken(data.token);
+        toast.success("Login Successful!");
+        navigate("/doctor-dashboard");
+        //  console.log("dTokhhhen", dToken);
+      } else {
+        toast.error(data.message || "Invalid Email or Password");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred during login. Please try again later.");
+    }
+  };
 
-console.log("dToken",dToken);
+  console.log("dToken", dToken);
 
   return (
     <div
@@ -141,7 +141,6 @@ console.log("dToken",dToken);
                   User Patient Login
                 </Link>
               </p>
-             
             </div>
           </form>
         </div>

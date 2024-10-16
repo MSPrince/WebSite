@@ -37,7 +37,7 @@ export default function Navbar() {
       console.log("dtoken:", dtoken);
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/doctor/profile",
+        "https://doctors-diary-backend.onrender.com/api/doctor/profile",
         {
           headers: {
             Authorization: `Bearer ${dtoken}`,
@@ -103,8 +103,6 @@ export default function Navbar() {
             <Menu as="div" className="relative ml-3">
               <div>
                 <MenuButton className="relative flex rounded-full  text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-        
-
                   {isLoading ? (
                     <div className="h-8 w-8 flex items-center justify-center rounded-full bg-gray-200">
                       <span className="loader"></span>

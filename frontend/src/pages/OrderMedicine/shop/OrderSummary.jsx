@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdAutoDelete } from "react-icons/md";
-import {loadStripe} from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { clearCart } from "../../../redux/Medicine/Features/cartSlice";
-import { useAuth } from './../../../store/auth';
-import { toast } from 'react-toastify';
+import { useAuth } from "./../../../store/auth";
+import { toast } from "react-toastify";
 function OrderSummary() {
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -48,7 +48,7 @@ function OrderSummary() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/orders/create-checkout-session`,
+        `https://doctors-diary-backend.onrender.com/api/orders/create-checkout-session`,
         {
           method: "POST",
           headers: headers,

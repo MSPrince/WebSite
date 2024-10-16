@@ -9,44 +9,30 @@ const DoctorContextProvider = (props) => {
     localStorage.getItem("dtoken") ? localStorage.getItem("dtoken") : ""
   );
 
-  const [appointments ,setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
-
-const getAppointments =async ()=>{
-  try {
-    const {data}= axios.get("http://localhost:5000/api/doctor/appointments",{
-      headers:{
-        "Authorization":`Bearer ${dToken}`
+  const getAppointments = async () => {
+    try {
+      const { data } = axios.get(
+        "https://doctors-diary-backend.onrender.com/api/doctor/appointments",
+        {
+          headers: {
+            Authorization: `Bearer ${dToken}`,
+          },
+        }
+      );
+      if (data.success) {
+        setAppointments(data.appointments.reverse());
+        console.log(data.appointments.reverse());
+      } else {
+        toast.error(data.message);
+        alert(data.message);
       }
-    })
-    if(
-      data.success
-    ){
-      setAppointments(data.appointments.reverse());
-      console.log(data.appointments.reverse());
-    }else{
-      toast.error(
-        data.message
-      )
-      alert(
-        data.message
-      )
+    } catch (error) {
+      console.error(error);
+      alert("Error fetching appointments");
     }
-
-  } catch (error) {
-    console.error(error);
-    alert(
-      "Error fetching appointments"
-    )
-
-    
-  }
-}
-
-
-
-
-
+  };
 
   // Update localStorage whenever dToken changes
   useEffect(() => {

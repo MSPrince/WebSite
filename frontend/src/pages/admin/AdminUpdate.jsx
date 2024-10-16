@@ -17,13 +17,13 @@ const AdminUpdate = () => {
 
   const params = useParams();
   const { authorizationToken } = useAuth();
-  
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
   // Fetch single user data
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `https://doctors-diary-backend.onrender.com/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const AdminUpdate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/update/${params.id}`,
+        `https://doctors-diary-backend.onrender.com/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {
@@ -74,7 +74,7 @@ const AdminUpdate = () => {
 
       if (response.ok) {
         toast.success("Updated User Successfully");
-        navigate("/admin/users")
+        navigate("/admin/users");
       } else {
         toast.warning("Failed to update");
       }
@@ -96,10 +96,10 @@ const AdminUpdate = () => {
         </div>
         <div className="max-w-md w-full space-y-8 px-8 py-4 my-5 bg-white shadow-lg rounded-lg">
           <div className="text-center">
-            <h5
-              className="mx-auto font-bold text-primary w-auto"
-             
-            > Update User Profile</h5>
+            <h5 className="mx-auto font-bold text-primary w-auto">
+              {" "}
+              Update User Profile
+            </h5>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div className="rounded-md shadow-sm space-y-4">
