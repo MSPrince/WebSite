@@ -1,5 +1,5 @@
 import React from "react";
-import homebanner from "../../assets/medicine/header.png";
+import homebanner from "../../assets/home/BreastInlarger Cream.png";
 import { Link } from "react-router-dom";
 import bgImage from "../../assets/background/home background.avif";
 function HomeBanner() {

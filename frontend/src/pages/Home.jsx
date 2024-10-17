@@ -5,13 +5,11 @@ import products from "../pages/OrderMedicine/data/products.json";
 import OurServices from "../components/OurServices.jsx";
 import Homecomplete from "../components/Homecomplete.jsx";
 import { useEffect } from "react";
-import ProductCard from "./OrderMedicine/shop/ProductCard.jsx";
-import { Link } from "react-router-dom";
 import DownloadApp from "../components/DownloadApp.jsx";
 import ResearchSection from "../components/ResearchSection.jsx";
-import WorkProcess from "../components/hhhhhhh.jsx";
-import Hero from './../components/blog/Hero';
+
 import TrandingProducts from "./OrderMedicine/shop/TrandingProducts.jsx";
+import Chatting from "./Chatting.jsx";
 // import Testimonial from './Testimonial';
 
 function Home() {
@@ -46,6 +44,9 @@ function Home() {
       <ResearchSection />
       {/* <Testimonial/> */}
       <Homecomplete />
+      <div className="fixed bottom-2 right-2">
+        <Chatting/>
+      </div>
     </>
   );
 }

@@ -76,7 +76,7 @@ function DoctorsList() {
         backgroundPosition: "center",
       }}
     >
-      <h1 className="text-center text-2xl font-bold mb-4">Doctors List</h1>
+      <h1 className="text-center text-xl lg:text-3xl text-primary font-bold mb-4">Doctors List</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-5 items-center">
         {doctors.map((item) => (
           <div

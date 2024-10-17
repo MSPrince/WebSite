@@ -7,6 +7,7 @@ import { formetDate } from "../../../../../utils/formateDate";
 import { Link } from "react-router-dom";
 import UpdateOrderModal from "./UpdateOrderModal";
 import { toast } from "react-toastify";
+import bgImage from "../../../../../assets/background/home background.avif";
 
 const ManageOrders = () => {
   const { data: orders, error, isLoading, refetch } = useGetAllOrdersQuery();
@@ -61,7 +62,15 @@ const ManageOrders = () => {
   if (error) return <div>Something went wrong!</div>;
 
   return (
-    <div className="p-6">
+    <div
+      className="p-6"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <h2 className="text-2xl font-semibold mb-4 text-primary">
         Manage Orders
       </h2>
@@ -84,7 +93,7 @@ const ManageOrders = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+        <table className="min-w-full  border border-gray-200 rounded-lg">
           <thead className="bg-gray-100">
             <tr>
               <th className="py-2 px-2 md:py-3 md:px-4 border-b">Order Id</th>
@@ -117,7 +126,7 @@ const ManageOrders = () => {
                   <td className="py-2 px-2 md:py-3 md:px-4 border-b">
                     {formetDate(order?.updatedAt)}
                   </td>
-                  <td className="py-2 px-2 md:py-3 md:px-4 border-b flex items-center space-x-2 md:space-x-4">
+                  <td className="py-2 px-2 md:py-4 md:px-4 border-b flex items-center space-x-2 md:space-x-4">
                     <Link
                       to="#"
                       className="text-blue-500 hover:underline"
@@ -182,7 +191,7 @@ const ViewOrderModal = ({ order, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-y-scroll">
+    <div className="z-[656756578] fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-y-scroll">
       <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-lg">
         <h2 className="text-xl font-semibold mb-4">Order Details</h2>
         <p>

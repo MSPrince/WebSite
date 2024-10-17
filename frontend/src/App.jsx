@@ -91,6 +91,7 @@ import Donor from './pages/blood_donation/Donor';
 import AllLifeStylePackage from "./pages/LabTest/AllLifeStylePackage";
 import Signup from './pages/auth/Signup';
 import HomeBloodLayout from './pages/blood_donation/HomebloodLayout';
+import ChatHome from "./pages/chatting/ChatHome";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -107,6 +108,7 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blood-donation" element={<HomeBloodDonation />} />
+        <Route path="/chatting" element={<ChatHome />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />

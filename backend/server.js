@@ -30,7 +30,9 @@ const adminDocRouter = require("./doctor_consultation/admin.routes.js")
 // for blood Donation
 const donorRouter = require("./router/donor.js");
 const prospectRouter = require("./router/prospect")
-
+// chatting
+const messageRoutes = require("./chatting/message.routes")
+const userRoutes = require("./chatting/user.routes.js")
 // image upload 
 const uploadImage = require("./utils/uploadImage");
 const doctorRouter = require("./doctor_consultation/doctorsRoute.js");
@@ -74,6 +76,9 @@ app.use("/api/doctor", doctorRouter);
 app.use("/api/v1/donors" , donorRouter);
 app.use("/api/v1/prospect", prospectRouter);
 
+// chatting
+app.use("/api/messages", messageRoutes);
+app.use("/api/users", userRoutes);
 
 
 app.post("/uploadImage", (req, res) => {
