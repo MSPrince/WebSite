@@ -35,9 +35,11 @@ const prospectRouter = require("./router/prospect")
 const uploadImage = require("./utils/uploadImage");
 const doctorRouter = require("./doctor_consultation/doctorsRoute.js");
 
+// chatting
+const { app, server } = require("./socket/index");
 
 // // Create an instance of an Express application
-const app = express();
+// const app = express();
 
 // Handling CORS policy
 const corsOptions = {
@@ -91,7 +93,7 @@ connectCloudinary()
 // Connect to the database and start the server once the connection is successful
 connectDb().then(() => {
   // Start the server and listen on the specified port
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     // Log a message indicating the server is running and on which port
     console.log(`Server is running at port: ${PORT}`);
   });

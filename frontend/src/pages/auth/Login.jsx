@@ -4,10 +4,12 @@ import { useAuth } from "./../../store/auth";
 import { toast } from "react-toastify";
 import { FaGoogle, FaInstagram } from "react-icons/fa";
 import bgImage from "../../assets/background/home background.avif";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../redux/userSlice";
 
 const Login = () => {
   const [passShow, setPassShow] = useState(false);
-
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -38,17 +40,19 @@ const Login = () => {
         },
         body: JSON.stringify(user), // Send user credentials in body
       });
-const res_data = await response.json();
+      const res_data = await response.json();
       if (response.ok) {
-        
-        console.log(res_data);
+        console.log("login data", res_data);
+
         storeTokenInLS(res_data.token);
+        console.log("Login token:", res_data.token); // Log the token here
+        dispatch(setToken(res_data.token));
+        localStorage.setItem("tokena", res_data.token);
         setUser({
           email: "",
           password: "",
         });
 
-        
         toast.success("Login Successfull");
         navigate("/"); // Navigate to dashboard after successful login
       } else {

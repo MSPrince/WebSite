@@ -12,16 +12,13 @@ import AppContextProvider from "./context/AppContext.jsx";
 import DoctorContextProvider from "./context/DoctorContext.jsx";
 import AdminContextProvider from "./context/AdminContext.jsx";
 import { Toaster } from "react-hot-toast";
-import { SocketContextProvider } from "./components/chatting/context/SocketContext.jsx";
-import { AuthContextProvider } from './components/chatting/context/AuthContext';
 
 
 createRoot(document.getElementById("root")).render(
   <AppContextProvider>
     <AdminContextProvider>
       <DoctorContextProvider>
-        <AuthContextProvider>
-          <SocketContextProvider>
+       
             <Provider store={store}>
               <AuthProvider>
                 <StrictMode>
@@ -29,7 +26,7 @@ createRoot(document.getElementById("root")).render(
 
                   <ToastContainer
                     position="bottom-right"
-                    autoClose={2000}
+                    autoClose={1000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
@@ -43,8 +40,7 @@ createRoot(document.getElementById("root")).render(
                 </StrictMode>
               </AuthProvider>
             </Provider>
-          </SocketContextProvider>
-        </AuthContextProvider>
+        
       </DoctorContextProvider>
     </AdminContextProvider>
   </AppContextProvider>

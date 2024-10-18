@@ -19,6 +19,7 @@ const router = express.Router();
 const signupSchema = require("../validators/authValidator.js");
 const validate = require("../middleware/validate_middleware.js");
 const authMiddleware = require("../middleware/authMiddleware.js");
+const searchUser = require("../controller/searchUser.js");
 // Define the GET route for "/api/auth"
 router.get("/", home);
 router.post("/registration", validate(signupSchema), registration);
@@ -27,6 +28,16 @@ router.get("/user", authMiddleware, user);
 router.post("/book-appointment", authMiddleware, bookAppointment);
 router.get("/appointments", authMiddleware, getUserAppointments);
 router.post("/cancel-appointments", authMiddleware, cancelAppointment);
+router.post("/search-user", searchUser)
+
+
+
+
+
+
+
+
+
 
 // email config
 const transporter = nodemailer.createTransport({

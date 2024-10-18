@@ -6,10 +6,13 @@ import cartReducer from "./Medicine/Features/cartSlice";
 import { productsApi } from "./features/medicine/productsApi";
 import { reviewsApi } from "./features/medicine/reviewsApi";
 import { labTestApi } from "./features/labtest/labTestApi";
-import orderApi  from "./features/orders/orderApi";
-import statsApi from "./features/stats/statsApi"
+import orderApi from "./features/orders/orderApi";
+import statsApi from "./features/stats/statsApi";
+import userReducer from "./userSlice";
+
 export const store = configureStore({
   reducer: {
+    user: userReducer,
     [labTestApi.reducerPath]: labTestApi.reducer,
     [blogApi.reducerPath]: blogApi.reducer,
     [commentApi.reducerPath]: commentApi.reducer,
@@ -27,7 +30,9 @@ export const store = configureStore({
       commentApi.middleware,
       productsApi.middleware,
       statsApi.middleware,
-      reviewsApi.middleware, // Add reviewsApi middleware
+      reviewsApi.middleware,
       orderApi.middleware // Final middleware, no trailing comma needed
     ),
 });
+
+// Note: If you want to enable Redux DevTools, ensure you're in development mode

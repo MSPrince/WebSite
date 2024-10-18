@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
     setToken(serverToken);
   };
 
+  
   // LogoutUser Functionality
   const LogoutUser = () => {
     setToken(null); // Use null instead of an empty string
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("User data retrieved:", data.userData);
+        console.log("Login User data retrieved:", data.userData);
         setUser(data.userData);
         setIsLoading(false);
       } else {
