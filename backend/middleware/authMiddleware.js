@@ -20,7 +20,7 @@ const authMiddleware = async (req, res, next) => {
   try {
     // Verify the token using the secret key
     const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
-    console.log("Token is verified:", isVerified);
+    // console.log("Token is verified:", isVerified);
 
     // Attach verified user data to the request object
     req.user = isVerified;
@@ -34,7 +34,7 @@ const authMiddleware = async (req, res, next) => {
       return res.status(404).send({ message: "User not found." });
     }
 
-    console.log("User data:", userData);
+    // console.log("User data:", userData);
 
     // Attach user data to the request object
     req.user = userData;

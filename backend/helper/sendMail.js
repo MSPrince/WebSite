@@ -22,7 +22,7 @@ const sendMail = async (to, subject, text, html) => {
       html, // HTML body
     });
 
-    console.log("Message sent: %s", info.messageId); // Log message ID if successful
+    // console.log("Message sent: %s", info.messageId); // Log message ID if successful
   } catch (error) {
     console.error("Error sending email:", error); // Log any errors
   }

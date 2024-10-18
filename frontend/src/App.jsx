@@ -3,7 +3,7 @@ import "remixicon/fonts/remixicon.css";
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 
 // Pages
@@ -92,6 +92,7 @@ import AllLifeStylePackage from "./pages/LabTest/AllLifeStylePackage";
 import Signup from './pages/auth/Signup';
 import HomeBloodLayout from './pages/blood_donation/HomebloodLayout';
 import ChatHome from "./pages/chatting/ChatHome";
+
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -108,13 +109,22 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blood-donation" element={<HomeBloodDonation />} />
-        <Route path="/chatting" element={<ChatHome />} />
+        <Route
+          path="/chatting"
+          element={<ChatHome />}
+        />
 
         {/* Authentication */}
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login /> }
+        />
         <Route path="/doctors-login" element={<DoctorLogin />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/signup"
+          element={<Signup /> }
+        />
         <Route path="/forgotPassword/:id/:token" element={<ForgotPassword />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
 
@@ -152,17 +162,16 @@ function App() {
           <Route path="contacts" element={<AdminContact />} />
           <Route path="users/:id/edit" element={<AdminUpdate />} />
           {/* blood Donation  */}
-        
-            <Route path="bloodDonation" element={<Layout />}>
-              <Route path="home" element={<HomeBloodLayout />} />
-              <Route path="donors" element={<Donors />} />
-              <Route path="prospects" element={<Prospects />} />
-              <Route path="prospect/:id" element={<Prospect />} />
-              <Route path="newdonor" element={<NewDonor />} />
-              <Route path="donor/:id" element={<Donor />} />
-              {/* Define other routes as necessary */}
-            </Route>
-        
+
+          <Route path="bloodDonation" element={<Layout />}>
+            <Route path="home" element={<HomeBloodLayout />} />
+            <Route path="donors" element={<Donors />} />
+            <Route path="prospects" element={<Prospects />} />
+            <Route path="prospect/:id" element={<Prospect />} />
+            <Route path="newdonor" element={<NewDonor />} />
+            <Route path="donor/:id" element={<Donor />} />
+            {/* Define other routes as necessary */}
+          </Route>
         </Route>
 
         {/* User Dashboard */}

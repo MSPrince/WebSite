@@ -10,7 +10,7 @@ const home = async (req, res) => {
   try {
     res.status(200).send("Home");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send("Something went wrong");
   }
 };
@@ -18,7 +18,7 @@ const home = async (req, res) => {
 // Registration Controller
 const registration = async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const {
       username,
       email,
@@ -117,7 +117,7 @@ The Doctor's Diary Team,
       return res.status(401).json({ message: "Invalid email or password" });
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res.status(500).json("Internal server error");
   }
 };
@@ -126,7 +126,7 @@ The Doctor's Diary Team,
 const user = async (req, res) => {
   try {
     const userData = req.user; // Assuming user data is attached to req.user
-    console.log(userData);
+    // console.log(userData);
     res.status(200).json({ userData }); // Fixed status code and response format
   } catch (error) {
     console.log(`from the user route: ${error}`); // Fixed string interpolation and logging
@@ -233,8 +233,8 @@ const cancelAppointment = async (req, res) => {
       return res.status(404).json({ message: "Appointment not found" });
     }
 
-    console.log("User ID:", userId);
-    console.log("Appointment User ID:", appointmentData.userId);
+    // console.log("User ID:", userId);
+    // console.log("Appointment User ID:", appointmentData.userId);
 
     // Check if the user is authorized to cancel the appointment
     // Check if the user is authorized to cancel the appointment

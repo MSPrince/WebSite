@@ -4,6 +4,7 @@ import { useAuth } from "./../../store/auth";
 import { toast } from "react-toastify";
 import { FaGoogle, FaInstagram } from "react-icons/fa";
 import bgImage from "../../assets/background/home background.avif";
+
 const Login = () => {
   const [passShow, setPassShow] = useState(false);
 
@@ -37,15 +38,17 @@ const Login = () => {
         },
         body: JSON.stringify(user), // Send user credentials in body
       });
-
+const res_data = await response.json();
       if (response.ok) {
-        const res_data = await response.json();
+        
         console.log(res_data);
         storeTokenInLS(res_data.token);
         setUser({
           email: "",
           password: "",
         });
+
+        
         toast.success("Login Successfull");
         navigate("/"); // Navigate to dashboard after successful login
       } else {

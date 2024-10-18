@@ -5,8 +5,11 @@ import { useAuth } from "./../../store/auth";
 import { toast } from "react-toastify";
 import bgImage from "../../assets/background/home background.avif";
 
+
 const Signup = () => {
   const [passShow, setPassShow] = useState(false);
+  
+
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -94,6 +97,8 @@ const Signup = () => {
       }
 
       const res_data = await response.json();
+
+     
       navigate("/login"); // Ensure that this is correct
       // Reset the form
       setUser({
