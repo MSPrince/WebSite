@@ -120,17 +120,13 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/blood-donation" element={<HomeBloodDonation />} />
 
-        {token ? (
-          <>
+      
             <Route path="/chatting" element={<ChatHome />}>
               <Route path=":userId" element={<MessagePage />} />
             </Route>
-            {/* Redirect to chatting home if trying to access login */}
-            <Route path="/login" element={<Navigate to="/chatting" />} />
-          </>
-        ) : (
-          <Route path="/login" element={<Login />} />
-        )}
+            {/* Redirect to chatting home if trying to access login
+            <Route path="/login" element={<Navigate to="/chatting" />} /> */}
+      
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
