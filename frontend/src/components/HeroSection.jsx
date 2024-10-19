@@ -5,7 +5,7 @@ import { useAuth } from "../store/auth";
 import bgImage from "../assets/background/home background.avif";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import video from "../assets/media/website-Description.mp4"
 function VideoModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
@@ -19,20 +19,21 @@ function VideoModal({ isOpen, onClose }) {
           ✖️
         </button>
         <div className="aspect-w-16 aspect-h-9">
-          <iframe
+          <video
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/your-video-id" // Replace with your video link
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+            controls
+            src={video}
+            className="rounded-lg"
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
   );
 }
+
 
 function HeroSection() {
   const { user } = useAuth();
@@ -108,6 +109,23 @@ function HeroSection() {
               }`}
             />
           </div>
+        </div>
+
+        <div className="flex gap-40 items-center mb-8 p-3 border absolute top-16 ">
+          <marquee behavior="" direction="">
+            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
+              ☎️ +91-95998149103
+            </p>
+            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
+              🕥 Working Hour : 24* 7
+            </p>
+            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
+              📧 help@adoctorsdiary.com
+            </p>
+            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
+              ☎️ +91-7897173138
+            </p>
+          </marquee>
         </div>
       </section>
       <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

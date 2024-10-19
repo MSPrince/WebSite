@@ -63,7 +63,7 @@ function PostComment() {
         ></textarea>
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 w-full rounded-lg Button"
+          className=" text-white py-2 px-4 w-full rounded-lg bg-primary"
         >
           Comment It
         </button>

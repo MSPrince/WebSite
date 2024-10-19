@@ -19,7 +19,7 @@ function OurServices() {
     >
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-6">
-          <h2 className="text-xl lg:text-3xl font-bold text-primary text-center">
+          <h2 className="text-xl/relaxed lg:text-3xl/relaxed font-bold text-primary text-center">
             Our Services
           </h2>
           <p className="max-w-lg mx-auto text-md lg:text-lg text-gray-500 text-center">

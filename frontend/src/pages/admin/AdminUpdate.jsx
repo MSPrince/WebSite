@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "./../../store/auth";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-
+import bgImage from "../../assets/background/home background.avif"
 const AdminUpdate = () => {
   const [data, setData] = useState({
     username: "",
@@ -85,7 +85,15 @@ const AdminUpdate = () => {
   };
 
   return (
-    <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8 text-justify">
+    <div
+      className="mx-auto max-w-full px-2 sm:px-6 lg:px-8 text-justify"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="flex items-center justify-around min-h-screen">
         <div>
           <img
@@ -94,7 +102,7 @@ const AdminUpdate = () => {
             className="h-96 w-96 rounded-full shadow-lg"
           />
         </div>
-        <div className="max-w-md w-full space-y-8 px-8 py-4 my-5 bg-white shadow-lg rounded-lg">
+        <div className="max-w-md w-full space-y-8 px-8 py-4 my-5  shadow-lg rounded-lg">
           <div className="text-center">
             <h5 className="mx-auto font-bold text-primary w-auto">
               {" "}
@@ -114,7 +122,7 @@ const AdminUpdate = () => {
                   value={data.username}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Username"
                 />
               </div>
@@ -130,7 +138,7 @@ const AdminUpdate = () => {
                   value={data.email}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
               </div>
@@ -146,7 +154,7 @@ const AdminUpdate = () => {
                   value={data.phone}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Phone Number"
                 />
               </div>
@@ -162,7 +170,7 @@ const AdminUpdate = () => {
                   value={data.profession}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Profession"
                 />
               </div>
@@ -178,7 +186,7 @@ const AdminUpdate = () => {
                   value={data.isAdmin}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Admin or User"
                 />
               </div>
@@ -194,7 +202,7 @@ const AdminUpdate = () => {
                   value={data.completeAddress}
                   onChange={handleInput}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  className="appearance-none bg-transparent rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Complete Address"
                 />
               </div>
@@ -203,7 +211,7 @@ const AdminUpdate = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white Button"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary"
               >
                 Update
               </button>

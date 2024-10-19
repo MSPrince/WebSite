@@ -3,7 +3,7 @@ import { useAuth } from "../../store/auth";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Button } from "@mui/material";
-
+import bgImage from "../../assets/background/home background.avif"
 function AdminUser() {
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
@@ -67,7 +67,7 @@ function AdminUser() {
         return <strong>{rowIndex}</strong>;
       },
     },
-    { field: "username", headerName: "Name", flex: 1 },
+    { field: "username", headerName: "Name", flex: 2 },
     { field: "email", headerName: "Email", flex: 2 },
     { field: "phone", headerName: "Phone No", flex: 2 },
     { field: "completeAddress", headerName: "Complete Address", flex: 2 },
@@ -108,7 +108,15 @@ function AdminUser() {
   ];
 
   return (
-    <div className="overflow-y-scroll p-4 text-center">
+    <div
+      className="overflow-y-scroll p-4 text-center "
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div style={{ overflowX: "auto", overflowY: "auto" }}>
         <DataGrid
           rows={users}

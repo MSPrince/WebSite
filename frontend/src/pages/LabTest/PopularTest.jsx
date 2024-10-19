@@ -84,7 +84,7 @@ function PopularTest() {
           </h1>
           <button
             type="button"
-            className="bg-primary text-white py-2 px-6 rounded-full shadow-md hover:bg-opacity-80 transition duration-300"
+            className="bg-primary text-white py-2 px-6 rounded-lg shadow-md hover:bg-opacity-80 transition duration-300"
           >
             <Link
               to="/allpopularlabtest"

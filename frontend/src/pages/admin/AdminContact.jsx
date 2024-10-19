@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "./../../store/auth";
 import { toast } from "react-toastify"; // Ensure you have this package installed
 import { DataGrid } from "@mui/x-data-grid";
-
+import bgImage from "../../assets/background/home background.avif";
 function AdminContact() {
   const [contactData, setContactData] = useState([]);
   const { authorizationToken } = useAuth();
@@ -101,15 +101,24 @@ function AdminContact() {
     }));
 
   return (
-    <div className="mt-9 px-6" style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-        disableRowSelectionOnClick
-      />
+    <div
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="pt-9 px-6" style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          disableRowSelectionOnClick
+        />
+      </div>
     </div>
   );
 }

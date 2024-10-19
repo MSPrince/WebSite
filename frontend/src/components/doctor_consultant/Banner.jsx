@@ -19,16 +19,16 @@ function Banner() {
 
       <div className=" shadow-xl rounded-2xl px-5 lg:px-16 z-10 flex flex-col lg:flex-row text-white py-5 ">
         {/* Left Side */}
-        <div className=" z-20 w-full lg:w-[70%] space-y-6  md:text-left">
+        <div className=" z-20 w-full lg:w-[70%] space-y-3  md:text-left">
           <h1 className="text-xl lg:text-3xl text-primary font-extrabold leading-tight">
             Book an Appointment With Our Highly Qualified Doctors Today
           </h1>
-          <p className="text-md lg:text-xl text-gray-600">
+          <p className="text-md lg:text-xl text-gray-500">
             Connect with 100+ Trusted Doctors from a Wide Range of Specialties,
             Dedicated to Providing Top-Quality Healthcare Services to You and
             Your Loved Ones
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-lg/relaxed text-gray-500">
             We understand the importance of timely medical assistance, which is
             why we ensure a seamless appointment booking process. Whether you
             need a routine check-up or specialized care, our experienced doctors
@@ -40,7 +40,7 @@ function Banner() {
               navigate("/login");
               window.scrollTo(0, 0); // Scrolls to the top after navigation
             }}
-            className="mt-6 Button text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-6 bg-primary text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Create Your Account Now
           </button>

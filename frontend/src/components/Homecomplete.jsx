@@ -13,25 +13,6 @@ function Homecomplete() {
       }}
     >
       <div className="container mx-auto px-4 pt-10">
-        {/* marquee Tag */}
-
-        <div className="flex gap-40 items-center mb-8 p-3 border  bg-white/20 backdrop-filter backdrop-blur-lg ">
-          <marquee behavior="" direction="">
-            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
-              ☎️ +91-95998149103
-            </p>
-            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
-              🕥 Working Hour : 24* 7
-            </p>
-            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
-              📧 help@adoctorsdiary.com
-            </p>
-            <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
-              ☎️ +91-7897173138
-            </p>
-          </marquee>
-        </div>
-
         {/* seo part */}
         <div className="bg-white/20">
           <p className="text-sm lg:text-lg font-semibold text-primary">
