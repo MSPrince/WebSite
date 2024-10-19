@@ -25,12 +25,13 @@ function Error() {
         />
         <h1 className="text-5xl font-bold text-primary">404</h1>
         <p className="text-xl text-gray-700 my-3">
-          Oops! The page you're looking for can't be found.
+          Oops! The page you're looking for can't be found. <br />
+          Go on Login again
         </p>
 
         <Link
           to="/"
-          className="inline-block px-6 py-3 my-3 Button text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
+          className="inline-block px-6 py-3 my-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
         >
           Go to Homepage
         </Link>

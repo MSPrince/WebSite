@@ -3,7 +3,7 @@ import "remixicon/fonts/remixicon.css";
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 // Pages
@@ -93,14 +93,24 @@ import Signup from './pages/auth/Signup';
 import HomeBloodLayout from './pages/blood_donation/HomebloodLayout';
 import ChatHome from "./pages/chatting/ChatHome";
 import MessagePage from "./components/chatting/MessagePage";
+import { useAuth } from "./store/auth";
 function App() {
+    const location = useLocation(); // Get the current location
+
+    // Determine if the current route is '/chatting'
+    const shouldShowFooter = !(
+      location.pathname === "/chatting" ||
+      location.pathname.startsWith("/chatting/")
+    );
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const {user} = useAuth();
+  const token = localStorage.getItem("token")
   return (
-    <BrowserRouter>
-      <Navbar />
+    <>
+      {shouldShowFooter && <Navbar />}
       <Routes>
         {/* Home Routes */}
         <Route path="/" element={<Home />} />
@@ -109,9 +119,18 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blood-donation" element={<HomeBloodDonation />} />
-        <Route path="/chatting" element={<ChatHome />}>
-          <Route path=":userId" element={<MessagePage />} />
-        </Route>
+
+        {token ? (
+          <>
+            <Route path="/chatting" element={<ChatHome />}>
+              <Route path=":userId" element={<MessagePage />} />
+            </Route>
+            {/* Redirect to chatting home if trying to access login */}
+            <Route path="/login" element={<Navigate to="/chatting" />} />
+          </>
+        ) : (
+          <Route path="/login" element={<Login />} />
+        )}
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
@@ -206,8 +225,8 @@ function App() {
 
         <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
       </Routes>
-      <Footer />
-    </BrowserRouter>
+      {shouldShowFooter && <Footer />}
+    </>
   );
 }
 

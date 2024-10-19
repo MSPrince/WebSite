@@ -51,7 +51,7 @@ function ChatHome() {
 
   return (
     <div
-      className="grid lg:grid-cols-[300px,1fr] h-screen max-h-screen"
+      className="grid lg:grid-cols-[300px,1fr] h-[calc(100vh)] max-h-screen "
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -59,7 +59,7 @@ function ChatHome() {
         backgroundPosition: "center",
       }}
     >
-      <section className={`${!basePath && "hidden"} lg:block`}>
+      <section className={`${!basePath && "hidden"} lg:block `}>
         <Sidebar />
       </section>
 

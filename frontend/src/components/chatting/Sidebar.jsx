@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoChatbubbleEllipses } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import { FaUserPlus } from "react-icons/fa";
+import { FaImage, FaUserPlus, FaVideo } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import Avatar from "./Avatar";
 import { useSelector } from "react-redux";
 import { useAuth } from "./../../store/auth";
 import { FiArrowUpLeft } from "react-icons/fi";
 import SearchUser from "./SearchUser";
+import logo from "../../assets/logo/Company-logo-chat.svg"
 function Sidebar() {
-  const { user } = useAuth();
+   const user = useSelector((state) => state?.user);
   const username = user?.username || "";
 
   // Get the first letter of the last word
@@ -25,10 +26,49 @@ function Sidebar() {
 
   const [allUser, setAllUser] = useState([]);
     const [openSearchUser, setOpenSearchUser] = useState(false);
+
+ const socketConnection = useSelector((state) => state?.user?.socketConnection);
+
+    useEffect(() => {
+      if (socketConnection) {
+        socketConnection.emit("sidebar", user._id);
+
+        socketConnection.on("conversation", (data) => {
+          console.log("conversation", data);
+
+          const conversationUserData = data.map((conversationUser, index) => {
+            if (
+              conversationUser?.sender?._id === conversationUser?.receiver?._id
+            ) {
+              return {
+                ...conversationUser,
+                userDetails: conversationUser?.sender,
+              };
+            } else if (conversationUser?.receiver?._id !== user?._id) {
+              return {
+                ...conversationUser,
+                userDetails: conversationUser.receiver,
+              };
+            } else {
+              return {
+                ...conversationUser,
+                userDetails: conversationUser.sender,
+              };
+            }
+          });
+
+          setAllUser(conversationUserData);
+        });
+      }
+    }, [socketConnection, user]);
+
   return (
-    <div className="w-full h-full grid grid-cols-[48px,1fr] bg-white">
-      <div className="bg-slate-100 w-12 h-full rounded-tr-lg rounded-br-lg py-5 text-slate-600 flex flex-col justify-between">
+    <div className="w-full h-full grid grid-cols-[48px,1fr] bg-white -z-10">
+      <div className="bg-slate-100 w-12 h-full rounded-tr-lg rounded-br-lg py-5 text-slate-600 flex gap-5 flex-col justify-between">
         <div>
+          <NavLink to="/">
+            <img src={logo} alt="" className="mb-5" />
+          </NavLink>
           <NavLink
             className={({ isActive }) =>
               `w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded ${
@@ -58,15 +98,6 @@ function Sidebar() {
               userId={user?._id}
             />
           </button>
-          <button
-            title="logout"
-            className="w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded"
-            //   onClick={handleLogout}
-          >
-            <span className="-ml-2">
-              <BiLogOut size={20} />
-            </span>
-          </button>
         </div>
       </div>
 
@@ -86,13 +117,64 @@ function Sidebar() {
               </p>
             </div>
           )}
+
+          {allUser.map((conv, index) => {
+            return (
+              <NavLink
+                to={"/chatting/" + conv?.userDetails?._id}
+                key={conv?._id}
+                className="flex items-center gap-2 py-4 px-2 border border-transparent hover:border-primary rounded hover:bg-slate-100 cursor-pointer"
+              >
+                <div>
+                  <Avatar
+                    imgUrl={conv?.userDetails?.profileImage}
+                    name={conv?.userDetails?.username}
+                    width={40}
+                    height={40}
+                  />
+                </div>
+                <div className="-mt-6">
+                  <h3 className="text-ellipsis line-clamp-1 font-semibold text-base">
+                    {conv?.userDetails?.username}
+                  </h3>
+                  <div className="text-slate-500 text-xs flex items-center gap-1">
+                    <div className="flex items-center gap-1">
+                      {conv?.lastMsg?.imageUrl && (
+                        <div className="flex items-center gap-1">
+                          <span>
+                            <FaImage />
+                          </span>
+                          {!conv?.lastMsg?.text && <span>Image</span>}
+                        </div>
+                      )}
+                      {conv?.lastMsg?.videoUrl && (
+                        <div className="flex items-center gap-1">
+                          <span>
+                            <FaVideo />
+                          </span>
+                          {!conv?.lastMsg?.text && <span>Video</span>}
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-ellipsis line-clamp-1">
+                      {conv?.lastMsg?.text}
+                    </p>
+                  </div>
+                </div>
+                {Boolean(conv?.unseenMsg) && (
+                  <p className="text-xs w-6 h-6 flex justify-center items-center ml-auto p-1 bg-green-500 text-white font-semibold rounded-full">
+                    {conv?.unseenMsg}
+                  </p>
+                )}
+              </NavLink>
+            );
+          })}
         </div>
       </div>
 
       {/**search user */}
       {openSearchUser && (
         <SearchUser onClose={() => setOpenSearchUser(false)} />
-        
       )}
     </div>
   );

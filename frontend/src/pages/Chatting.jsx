@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Chatting() {
   return (
     <div>
-      <Link to="/chatting">
+      <Link to="/chatting" target="_blank" rel="noopener noreferrer">
         <img
           src={whatsapp}
           alt="WhatsApp"
