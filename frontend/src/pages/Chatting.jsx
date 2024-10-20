@@ -10,7 +10,7 @@ function Chatting() {
   const handleClick = (e) => {
     if (token) {
       // If the token is present, open the chat in a new tab
-      window.open("/chatting", "_blank", "noopener,noreferrer");
+      window.open("/chatting");
       // Redirect the current page as well
     } else {
       // Prevent the default link behavior and show the toast
