@@ -49,8 +49,6 @@ const Login = () => {
 
         storeTokenInLS(res_data.token);
         console.log("Login token:", res_data.token); // Log the token here
-        // dispatch(setToken(res_data.token));
-        // localStorage.setItem("tokena", res_data.token);
         setUser({
           email: "",
           password: "",

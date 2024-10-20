@@ -4,30 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 function Chatting() {
-  const token = localStorage.getItem("token");
-  const navigate = useNavigate();
-
-  const handleClick = (e) => {
-    if (token) {
-      // If the token is present, open the chat in a new tab
-      window.open("/chatting");
-      // Redirect the current page as well
-    } else {
-      // Prevent the default link behavior and show the toast
-      e.preventDefault();
-      toast.error("Please login first to access chat", {
-        position: "bottom-center",
-        style: {
-          background: "#333",
-          color: "#fff",
-        },
-      });
-    }
-  };
-
+ 
   return (
     <div>
-      <Link to="/" onClick={handleClick}>
+      <Link to="/chatting">
         <img
           src={whatsapp}
           alt="WhatsApp"
