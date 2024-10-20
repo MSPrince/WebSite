@@ -206,8 +206,8 @@ function MessagePage() {
               <div
                 className={` p-1 py-1 rounded w-fit max-w-[280px] md:max-w-sm lg:max-w-md ${
                   user._id === msg?.msgByUserId
-                    ? "ml-auto bg-teal-100"
-                    : "bg-white"
+                    ? "ml-auto bg-primary text-white"
+                    : "bg-secondary text-white"
                 }`}
               >
                 <div className="w-full relative">
@@ -226,7 +226,7 @@ function MessagePage() {
                   )}
                 </div>
                 <p className="px-2">{msg.text}</p>
-                <p className="text-xs ml-auto w-fit">
+                <p className="text-xs ml-auto w-fit text-pink-400">
                   {moment(msg.createdAt).format("hh:mm")}
                 </p>
               </div>
