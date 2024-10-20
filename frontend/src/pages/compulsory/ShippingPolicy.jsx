@@ -36,18 +36,24 @@ function ShippingPolicy() {
 
       <article className="bg-white/20 backdrop-blur-lg backdrop-filter mt-10 p-6 rounded-lg shadow-md">
         <p className="text-sm text-gray-500 mb-4">
-          Last updated on Dec 24th 2023
+          Last updated on Oct 20th 2024
         </p>
-        <p className="mb-4 text-gray-700">
-          Shipping is not applicable for business.
-        </p>
+
         <footer>
           <p className="font-semibold text-primary mt-6">Disclaimer:</p>
           <p className="text-gray-500">
-            The above content is created at Doctor's Diary Pvt Ltd sole
-            discretion. Razorpay shall not be liable for any content provided
-            here and shall not be responsible for any claims and liability that
-            may arise due to merchant’s non-adherence to it.
+            The orders for the user are shipped through registered domestic
+            courier companies and/or speed post only. Orders are shipped within
+            7 days from the date of the order and/or payment or as per the
+            delivery date agreed at the time of order confirmation and
+            delivering of the shipment, subject to courier company / post office
+            norms. Platform Owner shall not be liable for any delay in delivery
+            by the courier company / postal authority. Delivery of all orders
+            will be made to the address provided by the buyer at the time of
+            purchase. Delivery of our services will be confirmed on your email
+            ID as specified at the time of registration. If there are any
+            shipping cost(s) levied by the seller or the Platform Owner (as the
+            case be), the same is not refundable.
           </p>
         </footer>
       </article>

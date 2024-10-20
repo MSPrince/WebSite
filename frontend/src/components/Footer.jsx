@@ -113,28 +113,35 @@ function Footer() {
                       className="hover:opacity-75 text-white"
                     >
                       {" "}
-                      Term & Condition{" "}
+                      Terms and Conditions{" "}
                     </Link>
                     <Link
                       to="/privacy-policy"
                       className="hover:opacity-75 text-white"
                     >
                       {" "}
-                      Privacy Policy{" "}
+                      Privacy policy{" "}
                     </Link>
                     <Link
                       to="/shipping-policy"
                       className="hover:opacity-75 text-white"
                     >
                       {" "}
-                      Shiping Policy{" "}
+                      Shipping policy{" "}
                     </Link>
                     <Link
                       to="/cancellation-refund"
                       className="hover:opacity-75 text-white"
                     >
                       {" "}
-                      Refund And Cancellation{" "}
+                      Refund policy{" "}
+                    </Link>
+                    <Link
+                      to="/return-policy"
+                      className="hover:opacity-75 text-white"
+                    >
+                      {" "}
+                      Return policy{" "}
                     </Link>
                   </nav>
                 </div>
@@ -151,8 +158,8 @@ function Footer() {
                     </a>
                     <a className="hover:opacity-75 text-white" href="#">
                       {" "}
-                      Corporate Address: H 55, Electronic City, H Block, Sector
-                      63, Noida, Uttar Pradesh 201301{" "}
+                      Corporate Address: H 55, Electronic City, H Block, Jaunpur
+                      UP 222001{" "}
                     </a>
                   </nav>
                 </div>

@@ -78,14 +78,35 @@ function OrderSummary() {
   };
 
   return (
-    <div className="p-4 border-t border-gray-200">
+    <div className="p-4 border-t border-gray-200 text-primary">
       <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-      <p className="mb-2">Selected Items: {selectedItems}</p>
-      <p className="mb-2">Total Price: $ {totalPrice.toFixed(2)}</p>
-      <p className="mb-2">
-        Tax ({taxRate}%): $ {tax.toFixed(2)}
+      <p className="mb-2 font-semibold text-primary">
+        Selected Items:{" "}
+        <span className="text-green-400 font-bold text-lg">
+          {selectedItems}
+        </span>{" "}
       </p>
-      <p className="mb-4 font-bold">Grand Total: $ {grandTotal.toFixed(2)}</p>
+      <p className="mb-2 font-semibold text-primary">
+        Total Price:₹{" "}
+        <span className="text-green-400 font-bold text-lg">
+          {" "}
+          {totalPrice.toFixed(2)}
+        </span>
+      </p>
+      <p className="mb-2 font-semibold text-primary">
+        Tax ({taxRate}%): ₹{" "}
+        <span className="text-green-400 font-bold text-lg">
+          {" "}
+          {tax.toFixed(2)}
+        </span>
+      </p>
+      <p className="mb-4 font-bold">
+        Grand Total: ₹{" "}
+        <span className="text-green-400 font-bold text-lg">
+          {" "}
+          {grandTotal.toFixed(2)}
+        </span>
+      </p>
 
       <div className="flex justify-around gap-2">
         <button
@@ -93,7 +114,7 @@ function OrderSummary() {
             e.preventDefault();
             handleClearCart();
           }}
-          className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200"
+          className="bg-secondary text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200"
         >
           Clear Cart <MdAutoDelete className="inline ml-3" />
         </button>
@@ -102,7 +123,7 @@ function OrderSummary() {
             e.preventDefault();
             makePayment();
           }}
-          className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 "
+          className="bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-200 "
         >
           Proceed to Checkout{" "}
           <MdOutlineShoppingCartCheckout className="inline ml-3" />

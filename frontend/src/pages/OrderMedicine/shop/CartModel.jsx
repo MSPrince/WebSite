@@ -48,7 +48,7 @@ function CartModel({ products, isOpen, onClose }) {
                     {product.name}
                   </h5>
                   <p className="text-gray-600">
-                    ${Number(product.price).toFixed(2)}
+                    ₹ {Number(product.price).toFixed(2)}
                   </p>
                 </div>
                 <div className="flex items-center space-x-2">

@@ -94,6 +94,7 @@ import HomeBloodLayout from './pages/blood_donation/HomebloodLayout';
 import ChatHome from "./pages/chatting/ChatHome";
 import MessagePage from "./components/chatting/MessagePage";
 import { useAuth } from "./store/auth";
+import ReturnPolicy from "./pages/compulsory/ReturnPolicy";
 function App() {
     const location = useLocation(); // Get the current location
 
@@ -120,13 +121,11 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/blood-donation" element={<HomeBloodDonation />} />
 
-      
-            <Route path="/chatting" element={<ChatHome />}>
-              <Route path=":userId" element={<MessagePage />} />
-            </Route>
-            {/* Redirect to chatting home if trying to access login
+        <Route path="/chatting" element={<ChatHome />}>
+          <Route path=":userId" element={<MessagePage />} />
+        </Route>
+        {/* Redirect to chatting home if trying to access login
             <Route path="/login" element={<Navigate to="/chatting" />} /> */}
-      
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
@@ -141,6 +140,7 @@ function App() {
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/cancellation-refund" element={<Cancellation />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/return-policy" element={<ReturnPolicy />} />
 
         {/* Doctor Appoinment */}
         <Route path="/doctors" element={<Doctors />} />

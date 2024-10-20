@@ -48,7 +48,7 @@ function SearchProduct() {
       }}
     >
       {/* Header Section */}
-      <div className="p-6 lg:p-8 bg-primary text-center">
+      <div className="p-6 lg:p-8 bg-primary text-center rounded-lg shadow-lg">
         <section className="section__container">
           <h2 className="text-3xl font-extrabold capitalize text-white">
             Search Products

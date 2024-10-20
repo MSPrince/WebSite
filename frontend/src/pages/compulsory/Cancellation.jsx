@@ -29,7 +29,7 @@ function Cancellation() {
       >
         <div className="p-16 text-center">
           <h1 className="text-4xl font-extrabold mb-6 text-white text-center">
-            Cancellation & Refund Policy
+            Refund and Cancellation policy
           </h1>
           <p className=" max-w-2xl mx-auto text-base md:text-lg mb-6">
             We value your satisfaction and offer flexible cancellation and
@@ -83,20 +83,37 @@ function Cancellation() {
             .
           </li>
           <li>
-            Refunds might take 5-7 business days to get credited in the
-            customer's account.
+            Cancellations will only be considered if the request is made 5 days
+            of placing the order. However, cancellation requests may not be
+            entertained if the orders have been communicated to such sellers /
+            merchant(s) listed on the Platform and they have initiated the
+            process of shipping them, or the product is out for delivery. In
+            such an event, you may choose to reject the product at the doorstep.
           </li>
           <li>
-            Refund for any cash transaction will be credited in Customer's
-            Doctor's Diary Wallet only.
+            Doctors Diary does not accept cancellation requests for perishable
+            items like flowers, eatables, etc. However, the refund / replacement
+            can be made if the user establishes that the quality of the product
+            delivered is not good.
           </li>
           <li>
-            No refund request will be entertained once the Lab has generated the
-            test report.
+            In case of receipt of damaged or defective items, please report to
+            our customer service team. The request would be entertained once the
+            seller/ merchant listed on the Platform, has checked and determined
+            the same at its own end. This should be reported within 5 days of
+            receipt of products. In case you feel that the product received is
+            not as shown on the site or as per your expectations, you must bring
+            it to the notice of our customer service within 5 days of receiving
+            the product. The customer service team after looking into your
+            complaint will take an appropriate decision.
           </li>
           <li>
-            No refund request will be entertained 7 days after a sample
-            collection has been done.
+            In case of complaints regarding the products that come with a
+            warranty from the manufacturers, please refer the issue to them.
+          </li>
+          <li>
+            In case of any refunds approved by Doctors Diary, it will take 10
+            days for the refund to be processed to you.
           </li>
         </ol>
       </div>
