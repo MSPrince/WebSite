@@ -111,7 +111,7 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="flex gap-40 items-center mb-8 p-3 border absolute top-16 ">
+        <div className="flex gap-40 items-center mb-8 p-3 absolute top-16 ">
           <marquee behavior="" direction="">
             <p className="mr-48 inline-block text-lg text-gray-700 font-semibold">
               ☎️ +91-95998149103
