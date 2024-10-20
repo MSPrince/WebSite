@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { IoClose, IoSearchOutline } from "react-icons/io5";
-import Loading from './Loading';
-import axios from 'axios';
-import UserSearchCard from './UserSearchCard';
-import { toast } from 'react-toastify';
-
+import Loading from "./Loading";
+import axios from "axios";
+import UserSearchCard from "./UserSearchCard";
+import { toast } from "react-toastify";
 
 function SearchUser({ onClose }) {
   const [searchUser, setSearchUser] = useState([]);
@@ -12,7 +11,7 @@ function SearchUser({ onClose }) {
   const [search, setSearch] = useState("");
 
   const handleSearchUser = async () => {
-    const URL = `http://localhost:4000/api/auth/search-user`;
+    const URL = `https://doctors-diary-backen.onrender.com/api/auth/search-user`;
     try {
       setLoading(true);
       const response = await axios.post(URL, {
@@ -62,7 +61,9 @@ function SearchUser({ onClose }) {
           {searchUser.length !== 0 &&
             !loading &&
             searchUser.map((user, index) => {
-              return <UserSearchCard key={user._id} user={user} onClose={onClose} />;
+              return (
+                <UserSearchCard key={user._id} user={user} onClose={onClose} />
+              );
             })}
         </div>
       </div>
@@ -79,4 +80,4 @@ function SearchUser({ onClose }) {
   );
 }
 
-export default SearchUser
+export default SearchUser;

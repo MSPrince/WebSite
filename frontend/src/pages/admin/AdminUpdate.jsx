@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "./../../store/auth";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import bgImage from "../../assets/background/home background.avif"
+import bgImage from "../../assets/background/home background.avif";
 const AdminUpdate = () => {
   const [data, setData] = useState({
     username: "",
@@ -23,7 +23,7 @@ const AdminUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/admin/users/${params.id}`,
+        `https://doctors-diary-backen.onrender.com/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const AdminUpdate = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:4000/api/admin/users/update/${params.id}`,
+        `https://doctors-diary-backen.onrender.com/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {

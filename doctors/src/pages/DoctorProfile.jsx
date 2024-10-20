@@ -13,7 +13,7 @@ function DoctorProfile() {
       console.log("dtoken:", dtoken);
 
       const { data } = await axios.get(
-        "http://localhost:4000/api/doctor/profile",
+        "https://doctors-diary-backen.onrender.com/api/doctor/profile",
         {
           headers: {
             Authorization: `Bearer ${dtoken}`,
@@ -44,7 +44,7 @@ function DoctorProfile() {
         avilable: profileData.avilable,
       };
       const { data } = await axios.post(
-        "http://localhost:4000/api/doctor/update-profile",
+        "https://doctors-diary-backen.onrender.com/api/doctor/update-profile",
         updateData,
         {
           headers: {

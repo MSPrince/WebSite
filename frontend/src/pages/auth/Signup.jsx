@@ -5,10 +5,8 @@ import { useAuth } from "./../../store/auth";
 import { toast } from "react-toastify";
 import bgImage from "../../assets/background/home background.avif";
 
-
 const Signup = () => {
   const [passShow, setPassShow] = useState(false);
-  
 
   const [user, setUser] = useState({
     username: "",
@@ -80,7 +78,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/auth/registration",
+        "https://doctors-diary-backen.onrender.com/api/auth/registration",
         {
           method: "POST",
           headers: {
@@ -98,7 +96,6 @@ const Signup = () => {
 
       const res_data = await response.json();
 
-     
       navigate("/login"); // Ensure that this is correct
       // Reset the form
       setUser({

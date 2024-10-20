@@ -12,15 +12,13 @@ import { setUser } from "../../redux/userSlice";
 
 function ChatHome() {
   const dispatch = useDispatch();
-  const {user} = useAuth();
+  const { user } = useAuth();
   console.log("chat home user data", user);
-  dispatch(setUser(user))
-
+  dispatch(setUser(user));
 
   const userr = useSelector((state) => state.user);
   console.log("chat home user", userr);
 
- 
   const location = useLocation();
   console.log("location", location);
 
@@ -28,7 +26,7 @@ function ChatHome() {
 
   /***socket connection */
   useEffect(() => {
-    const socketConnection = io("http://localhost:4000/", {
+    const socketConnection = io("https://doctors-diary-backen.onrender.com/", {
       auth: {
         token: localStorage.getItem("token"),
       },
@@ -43,7 +41,7 @@ function ChatHome() {
       console.error("Socket connection error:", err);
     });
 
-        dispatch(setSocketConnection(socketConnection));
+    dispatch(setSocketConnection(socketConnection));
     return () => {
       socketConnection.disconnect();
     };

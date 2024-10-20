@@ -37,7 +37,7 @@ export default function Navbar() {
       console.log("dtoken:", dtoken);
 
       const { data } = await axios.get(
-        "http://localhost:4000/api/doctor/profile",
+        "https://doctors-diary-backen.onrender.com/api/doctor/profile",
         {
           headers: {
             Authorization: `Bearer ${dtoken}`,

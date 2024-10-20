@@ -84,7 +84,7 @@ router.post("/sendResetLink", async (req, res) => {
 
     if (setusertoken) {
       // Construct the reset URL using the correct user ID and token
-      const resetLink = `http://localhost:5173/forgotPassword/${userfind._id}/${setusertoken.verifytoken}`;
+      const resetLink = `https://frontt-pmpw.onrender.com/forgotPassword/${userfind._id}/${setusertoken.verifytoken}`;
 
       const mailOptions = {
         from: process.env.EMAIL,
